@@ -1,0 +1,2 @@
+class Operations < User
+end

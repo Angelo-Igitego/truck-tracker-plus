@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  documents_received_at: 2021-06-19 00:17:03
+  vessel: one
+  shipping_line: one
+  loading_port_id: 1
+  offloading_port_id: 1
+  eta_to_offloading_port: 2021-06-19 00:17:03
+  bearthed_at: 2021-06-19 00:17:03
+  discharged_at: 2021-06-19 00:17:03
+  shipper_name: MyString
+  remarks: MyText
+
+two:
+  number: MyString
+  documents_received_at: 2021-06-19 00:17:03
+  vessel: two
+  shipping_line: two
+  loading_port_id: 1
+  offloading_port_id: 1
+  eta_to_offloading_port: 2021-06-19 00:17:03
+  bearthed_at: 2021-06-19 00:17:03
+  discharged_at: 2021-06-19 00:17:03
+  shipper_name: MyString
+  remarks: MyText

@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210618212531) do
+ActiveRecord::Schema.define(version: 20210618221703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ports", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shipments", force: :cascade do |t|
+    t.string "number"
+    t.datetime "documents_received_at"
+    t.bigint "vessel_id"
+    t.bigint "shipping_line_id"
+    t.integer "loading_port_id"
+    t.integer "offloading_port_id"
+    t.datetime "eta_to_offloading_port"
+    t.datetime "bearthed_at"
+    t.datetime "discharged_at"
+    t.string "shipper_name"
+    t.text "remarks"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shipping_line_id"], name: "index_shipments_on_shipping_line_id"
+    t.index ["vessel_id"], name: "index_shipments_on_vessel_id"
+  end
+
+  create_table "shipping_lines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -52,4 +83,12 @@ ActiveRecord::Schema.define(version: 20210618212531) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  create_table "vessels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "shipments", "shipping_lines"
+  add_foreign_key "shipments", "vessels"
 end

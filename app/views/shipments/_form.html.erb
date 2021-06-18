@@ -1,0 +1,76 @@
+<%= form_with(model: shipment, local: true) do |form| %>
+<% if shipment.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
+
+  <ul>
+    <% shipment.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= form.label :number %>
+  <%= form.text_field :number, id: :shipment_number %>
+</div>
+
+<div class="field">
+  <%= form.label :documents_received_at %>
+  <%= form.datetime_select :documents_received_at, id: :shipment_documents_received_at %>
+</div>
+
+<div class="field">
+  <%= form.label :vessel_id %>
+  <%#= form.text_field :vessel_id, id: :shipment_vessel_id %>
+
+  <%= form.collection_select :vessel_id, Vessel.all, :id,:name,{ include_blank: "-- Select one --"}, required: true %>
+</div>
+
+<div class="field">
+  <%= form.label :shipping_line_id %>
+
+  <%= form.collection_select :shipping_line_id, ShippingLine.all, :id, :name,{ include_blank: "-- Select one --"}, required: true %>
+</div>
+
+<div class="field">
+  <%= form.label :loading_port_id %>
+  <%= form.collection_select :loading_port_id, Port.all, :id,:name,{ include_blank: "-- Select one --"}, required: true %>
+
+</div>
+
+<div class="field">
+  <%= form.label :offloading_port_id %>
+  <%= form.collection_select :offloading_port_id, Port.all, :id,:name,{ include_blank: "-- Select one --"}, required: true %>
+</div>
+
+<div class="field">
+  <%= form.label :eta_to_offloading_port %>
+  <%= form.datetime_select :eta_to_offloading_port, id: :shipment_eta_to_offloading_port %>
+</div>
+
+<div class="field">
+  <%= form.label :bearthed_at %>
+  <%= form.datetime_select :bearthed_at, id: :shipment_bearthed_at %>
+</div>
+
+<div class="field">
+  <%= form.label :discharged_at %>
+  <%= form.datetime_select :discharged_at, id: :shipment_discharged_at %>
+</div>
+
+<div class="field">
+  <%= form.label :shipper_name %>
+  <%= form.text_field :shipper_name, id: :shipment_shipper_name %>
+</div>
+
+<div class="field">
+  <%= form.label :remarks %>
+  <%= form.text_area :remarks, id: :shipment_remarks %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>

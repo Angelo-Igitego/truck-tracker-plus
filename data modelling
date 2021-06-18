@@ -4,7 +4,7 @@ Cargo trucking - Joel
 
 Client ashobora gukora tracking akoresheje container number
 
-Users: hagomba kuba harimo umuntu admin, managind director wa company, gucrea ama emails. azinjizamo abantu bakora muri iyo company, department ya operation. 
+Users: hagomba kuba harimo umuntu admin, managing director wa company, gucrea ama emails. azinjizamo abantu bakora muri iyo company, department ya operation. 
 
 umuntu wa operation ashobora gushyira mo umushoferi, truck number, cargo distribution, 
 
@@ -22,6 +22,7 @@ umu client si ngombwa ko yinjira muri systeme. ashobora kwandika aho ashaka akab
 
 	ntago dukora groupage: niba ari umuceli, ni umuceli wa angelo, ntago twemera abantu batazana container yuzuye. 
 	Yego birashoboka ko dushobora kuzatangira gukora groupage. 
+	
 	d. Customer
 
 
@@ -54,7 +55,7 @@ MODELS:
 ------
 
 a. USER
-	(first_name, last_name, email, phone, gender, passport_number, driving_license_number, type)
+	(first_name, last_name, email, phone, gender, passport_number, driving_license_number, type, nationality)
 
 b1. VESSEL
 	(name)
@@ -62,20 +63,47 @@ b1. VESSEL
 b2. SHIPPING_LINE
 	(name)
 
+b3. PORT
+	(name, 
+	country)
+
 c. SHIPMENT 
-	(number, country_of_origin, commercial_invoice--attachment--, bill_of_lading--attachment--, shipping_line_id, documents_received_on, remarks:text, port_of_loading, eta_dar, berthed_at, discharged_at, shipper_name, vessel_id)
+	(number,
+	documents_received_at,  
+	vessel_id, 
+	shipping_line_id,
+	loading_port_id, 
+	offloading_port_id, 
+	eta_to_offloading_port,
+	berthed_at, 
+	discharged_at, 
+	shipper_name, 
+	remarks:text,
+	commercial_invoice --attachment--, 
+	bill_of_lading     --attachment--,
+	packing_list       --attachment--
+	)
 
 d1. TRUCK
 	(model, tare, license_number, number)
 
 d2. TRIP
-	(truck_id, shipment_id, driver_id, number, onloading_port_id, offloading_site, onloaded_at, offloaded_at) 
+	(truck_id, shipment_id, driver_id, number, loading_port_id, offloading_site, onloaded_at, offloaded_at) 
 
 e. TRIP_UPDATES
 	(trip_id, latitude, longitude, country, province, district, description, eta_border, eta_site, user_id, created_at)
 
 f. CONTAINER
-	(number, height, length, width, gross_weight, net_weight, tare, commodity, shipment_id, trip_id)
+	(shipment_id, 
+	trip_id, 
+	number, 
+	height, 
+	length, 
+	width, 
+	gross_weight, 
+	net_weight, 
+	tare, 
+	commodity)
 
 g. INVOICE
 	(shipment_id, number, total_amount)

@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  
+  get '/track/:number', to: "shipments#track", as: :track_shipment
+
+  root to: 'shipments#track' #, as: :root
+
+
+  resources :shipments
+
+  resources :ports
+  resources :shipping_lines
+  resources :vessels
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end

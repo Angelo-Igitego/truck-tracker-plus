@@ -1,0 +1,27 @@
+<%= form_with(model: port, local: true) do |form| %>
+  <% if port.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(port.errors.count, "error") %> prohibited this port from being saved:</h2>
+
+      <ul>
+      <% port.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :port_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :port_country %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,45 @@
+<h1>Shipments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Documents received at</th>
+      <th>Vessel</th>
+      <th>Shipping line</th>
+      <th>Loading port</th>
+      <th>Offloading port</th>
+      <th>Eta to offloading port</th>
+      <th>Bearthed at</th>
+      <th>Discharged at</th>
+      <th>Shipper name</th>
+      <th>Remarks</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shipments.each do |shipment| %>
+      <tr>
+        <td><%= shipment.number %></td>
+        <td><%= shipment.documents_received_at %></td>
+        <td><%= shipment.vessel.name %></td>
+        <td><%= shipment.shipping_line.name %></td>
+        <td><%= shipment.loading_port.description %></td>
+        <td><%= shipment.offloading_port.description %></td>
+        <td><%= shipment.eta_to_offloading_port %></td>
+        <td><%= shipment.bearthed_at %></td>
+        <td><%= shipment.discharged_at %></td>
+        <td><%= shipment.shipper_name %></td>
+        <td><%= shipment.remarks %></td>
+        <td><%= link_to 'Show', shipment %></td>
+        <td><%= link_to 'Edit', edit_shipment_path(shipment) %></td>
+        <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shipment', new_shipment_path %>

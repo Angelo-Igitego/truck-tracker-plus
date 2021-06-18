@@ -9,8 +9,27 @@
 </head>
 
 <body>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+ 
+
+   <!-- Alerts notification -->
+   <% if alert%>
+   <article class="message is-danger">
+    <div class="message-body">
+      <p class=" has-text-centered"><%= alert %></p>
+    </div>
+  </article>
+  <% end %>
+
+  <!-- Notices notification -->
+  <% if notice %>
+  <article class="message is-success">
+    <div class="message-body">
+      <p class="notice has-text-centered"><%= notice %></p>
+    </div>
+  </article>
+  <% end %>
+
+
  
  <%= yield %>
 </body>
