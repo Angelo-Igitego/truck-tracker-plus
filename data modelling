@@ -1,0 +1,85 @@
+User story:
+----------
+Cargo trucking - Joel
+
+Client ashobora gukora tracking akoresheje container number
+
+Users: hagomba kuba harimo umuntu admin, managind director wa company, gucrea ama emails. azinjizamo abantu bakora muri iyo company, department ya operation. 
+
+umuntu wa operation ashobora gushyira mo umushoferi, truck number, cargo distribution, 
+
+umushoferi azajya yinjira muri systeme nka 2 ku munsi. mu gitondo: ari aha, nijoro araye aha. 
+
+umu client si ngombwa ko yinjira muri systeme. ashobora kwandika aho ashaka akabona aho kiri.
+
+
+1. Users: there will be 3 categories of users
+	a. Administrator
+	b. Truck driver
+	c. Operations Staff: yinjiza details za driver (amazina, passport number), yarangiza details z'umuzigo, zigizwe n'icyo azanye: umuceli uri muri container number iyi n'iyi, plaque y'imodoka. Driver azajya agenda arebe ahantu hari imodoka yange, akinjira mo akaupdatinga location. ubwo client nawe yajya gukora search, yashyiramo container number akabnona imodoka ni iyi, umushoferi uyizanye ageze aha. 
+
+	Hari imodoka zishobora gutwara caontiner imwe, ariko hari izindi ziri advanced
+
+	ntago dukora groupage: niba ari umuceli, ni umuceli wa angelo, ntago twemera abantu batazana container yuzuye. 
+	Yego birashoboka ko dushobora kuzatangira gukora groupage. 
+	d. Customer
+
+
+2. Functionality: 
+	a. Administrator will be able to create accounts for truck drivers and office employees
+	b. Administrator will also be able to manage all other parts of the system
+	c. Truck driver will be able to update the system and mention his location at any time
+	d. Customer will be able to check where the cargo location updates anytime, using container number 
+	Container izanywe n'imodoka iyi n'iyi iri aha 
+
+a CUSTOMER has many SHIPMENTs
+
+a VESSEL has many SHIPMENTs
+
+a SHIPMENT has many CONTAINERS 
+
+a TRUCK can have many CONTAINERS
+
+a shipment has an INVOICE
+
+an invoice has many INVOICE_ITEMS
+
+a shipment has a LINE
+
+//a SHIPMENT can have many CONTAINERS through TRUCKS
+
+
+
+MODELS: 
+------
+
+a. USER
+	(first_name, last_name, email, phone, gender, passport_number, driving_license_number, type)
+
+b1. VESSEL
+	(name)
+
+b2. SHIPPING_LINE
+	(name)
+
+c. SHIPMENT 
+	(number, country_of_origin, commercial_invoice--attachment--, bill_of_lading--attachment--, shipping_line_id, documents_received_on, remarks:text, port_of_loading, eta_dar, berthed_at, discharged_at, shipper_name, vessel_id)
+
+d1. TRUCK
+	(model, tare, license_number, number)
+
+d2. TRIP
+	(truck_id, shipment_id, driver_id, number, onloading_port_id, offloading_site, onloaded_at, offloaded_at) 
+
+e. TRIP_UPDATES
+	(trip_id, latitude, longitude, country, province, district, description, eta_border, eta_site, user_id, created_at)
+
+f. CONTAINER
+	(number, height, length, width, gross_weight, net_weight, tare, commodity, shipment_id, trip_id)
+
+g. INVOICE
+	(shipment_id, number, total_amount)
+
+h. INVOICE_ITEM
+	(invoice_id, item_description, unit_amount, quantity, total)
+
