@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   get '/track/:number', to: "shipments#track", as: :track_shipment
 
-  root to: 'shipments#track' #, as: :root
+  root 'shipments#track', as: :root
 
 
   resources :shipments
