@@ -5,7 +5,7 @@
 
 <p>
   <strong>Documents received at:</strong>
-  <%= @shipment.documents_received_at %>
+  <%= l @shipment.documents_received_at %>
 </p>
 
 <p>
@@ -30,17 +30,17 @@
 
 <p>
   <strong>Eta to offloading port:</strong>
-  <%= @shipment.eta_to_offloading_port %>
+  <%= l @shipment.eta_to_offloading_port %>
 </p>
 
 <p>
   <strong>Bearthed at:</strong>
-  <%= @shipment.bearthed_at.getlocal %>
+  <%= l @shipment.bearthed_at %>
 </p>
 
 <p>
   <strong>Discharged at:</strong>
-  <%= @shipment.discharged_at %>
+  <%= l @shipment.discharged_at %>
 </p>
 
 <p>
