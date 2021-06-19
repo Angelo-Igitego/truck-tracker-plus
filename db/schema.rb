@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210618221703) do
+ActiveRecord::Schema.define(version: 20210619164745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customers", force: :cascade do |t|
+    t.string "business_name"
+    t.string "po_box"
+    t.string "phone"
+    t.string "email"
+    t.string "contact_person_names"
+    t.string "contact_person_phone"
+    t.string "tin_number"
+    t.string "office_location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ports", force: :cascade do |t|
     t.string "name"
@@ -24,8 +37,9 @@ ActiveRecord::Schema.define(version: 20210618221703) do
 
   create_table "shipments", force: :cascade do |t|
     t.string "number"
+    t.bigint "customer_id"
     t.datetime "documents_received_at"
-    t.bigint "vessel_id"
+    t.string "vessel_name"
     t.bigint "shipping_line_id"
     t.integer "loading_port_id"
     t.integer "offloading_port_id"
@@ -36,12 +50,69 @@ ActiveRecord::Schema.define(version: 20210618221703) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_shipments_on_customer_id"
     t.index ["shipping_line_id"], name: "index_shipments_on_shipping_line_id"
-    t.index ["vessel_id"], name: "index_shipments_on_vessel_id"
   end
 
   create_table "shipping_lines", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trip_containers", force: :cascade do |t|
+    t.bigint "trip_id"
+    t.string "container_number"
+    t.decimal "container_height"
+    t.decimal "container_weight"
+    t.decimal "container_length"
+    t.decimal "container_gross_weight"
+    t.decimal "container_net_weight"
+    t.decimal "container_tare"
+    t.string "container_commodity"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_trip_containers_on_customer_id"
+    t.index ["trip_id"], name: "index_trip_containers_on_trip_id"
+  end
+
+  create_table "trip_updates", force: :cascade do |t|
+    t.bigint "trip_id"
+    t.string "location_details"
+    t.datetime "eta_border"
+    t.datetime "eta_site"
+    t.integer "updated_by_user_id"
+    t.decimal "latitude", precision: 10, scale: 8
+    t.decimal "longitude", precision: 11, scale: 8
+    t.string "country"
+    t.string "province"
+    t.string "district"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_trip_updates_on_trip_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.bigint "truck_id"
+    t.bigint "shipment_id"
+    t.integer "driver_id"
+    t.string "number"
+    t.integer "loading_port_id"
+    t.string "offloading_site"
+    t.datetime "onloaded_at"
+    t.string "offloaded_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shipment_id"], name: "index_trips_on_shipment_id"
+    t.index ["truck_id"], name: "index_trips_on_truck_id"
+  end
+
+  create_table "trucks", force: :cascade do |t|
+    t.string "model"
+    t.decimal "tare"
+    t.string "license_number"
+    t.string "unique_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,12 +154,11 @@ ActiveRecord::Schema.define(version: 20210618221703) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  create_table "vessels", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "shipments", "customers"
   add_foreign_key "shipments", "shipping_lines"
-  add_foreign_key "shipments", "vessels"
+  add_foreign_key "trip_containers", "customers"
+  add_foreign_key "trip_containers", "trips"
+  add_foreign_key "trip_updates", "trips"
+  add_foreign_key "trips", "shipments"
+  add_foreign_key "trips", "trucks"
 end

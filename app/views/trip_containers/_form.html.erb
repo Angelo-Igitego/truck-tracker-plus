@@ -1,0 +1,67 @@
+<%= form_with(model: trip_container, local: true) do |form| %>
+  <% if trip_container.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trip_container.errors.count, "error") %> prohibited this trip_container from being saved:</h2>
+
+      <ul>
+      <% trip_container.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :trip_id %>
+    <%= form.text_field :trip_id, id: :trip_container_trip_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :container_number %>
+    <%= form.text_field :container_number, id: :trip_container_container_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :container_height %>
+    <%= form.text_field :container_height, id: :trip_container_container_height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :container_weight %>
+    <%= form.text_field :container_weight, id: :trip_container_container_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :container_length %>
+    <%= form.text_field :container_length, id: :trip_container_container_length %>
+  </div>
+
+  <div class="field">
+    <%= form.label :container_gross_weight %>
+    <%= form.text_field :container_gross_weight, id: :trip_container_container_gross_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :container_net_weight %>
+    <%= form.text_field :container_net_weight, id: :trip_container_container_net_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :container_tare %>
+    <%= form.text_field :container_tare, id: :trip_container_container_tare %>
+  </div>
+
+  <div class="field">
+    <%= form.label :container_commodity %>
+    <%= form.text_field :container_commodity, id: :trip_container_container_commodity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.text_field :customer_id, id: :trip_container_customer_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

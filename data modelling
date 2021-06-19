@@ -55,59 +55,108 @@ MODELS:
 ------
 
 a. USER
-	(first_name, last_name, email, phone, gender, passport_number, driving_license_number, type, nationality)
+	(first_name, 
+	last_name, 
+	email, 
+	phone, 
+	gender, 
+	passport_number, 
+	driving_license_number, 
+	type, 
+	nationality)
 
-b1. VESSEL
+a2. CUSTOMER
+	(business_name
+	po_box
+	phone
+	email
+	contact_person_names
+	contact_person_phone
+	tin_number
+	office_location)
+
+c. SHIPPING_LINE
 	(name)
 
-b2. SHIPPING_LINE
-	(name)
-
-b3. PORT
+d. PORT
 	(name, 
 	country)
 
-c. SHIPMENT 
-	(number,
-	documents_received_at,  
-	vessel_id, 
-	shipping_line_id,
-	loading_port_id, 
-	offloading_port_id, 
-	eta_to_offloading_port,
-	berthed_at, 
-	discharged_at, 
-	shipper_name, 
-	remarks:text,
-	commercial_invoice --attachment--, 
-	bill_of_lading     --attachment--,
+e. SHIPMENT 
+	(
+	customer:references
+	unique_number
+	documents_received_at:datetime  
+	vessel_name 
+	shipping_line
+	loading_port_id 
+	offloading_port_id 
+	eta_to_offloading_port
+	berthed_at 
+	discharged_at 
+	shipper_name 
+	remarks:text
+	commercial_invoice --attachment-- 
+	bill_of_lading     --attachment--
 	packing_list       --attachment--
+	
 	)
 
-d1. TRUCK
-	(model, tare, license_number, number)
+f. TRUCK
+	(model 
+	tare 
+	license_number 
+	number)
 
-d2. TRIP
-	(truck_id, shipment_id, driver_id, number, loading_port_id, offloading_site, onloaded_at, offloaded_at) 
+g. TRIPS
+	(truck_id 
+	shipment_id 
+	driver_id 
+	number 
+	loading_port_id 
+	offloading_site 
+	onloaded_at 
+	offloaded_at) 
 
-e. TRIP_UPDATES
-	(trip_id, latitude, longitude, country, province, district, description, eta_border, eta_site, user_id, created_at)
+h. TRIP_CONTAINERS
+	(trip_id 
+	container_number 
+	container_height 
+	container_length 
+	container_width 
+	container_gross_weight 
+	container_net_weight 
+	container_tare 
+	container_commodity
+	customer_id
+	)
 
-f. CONTAINER
-	(shipment_id, 
-	trip_id, 
-	number, 
-	height, 
-	length, 
-	width, 
-	gross_weight, 
-	net_weight, 
-	tare, 
-	commodity)
+i. TRIP_UPDATES
+	(trip_id 
+	location_details 
+	eta_border 
+	eta_site 
+	user_id 
+	latitude 
+	longitude 
+	country 
+	province 
+	district 
+	)
 
-g. INVOICE
-	(shipment_id, number, total_amount)
+j. INVOICE
+	(shipment_id 
+	number 
+	total_amount)
 
-h. INVOICE_ITEM
-	(invoice_id, item_description, unit_amount, quantity, total)
+k. INVOICE_ITEM
+	(invoice_id 
+	item_description 
+	unit_amount 
+	quantity 
+	total)
 
+
+
+ rails g scaffold TripContainer t
+rip:references container_number container_height:decimal container_weight:decimal container_length:decimal container_gross_weight:decimal container_net_weight:decimal container_tare:decimal container_commodity customer:references

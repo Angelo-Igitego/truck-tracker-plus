@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Trip:</strong>
+  <%= @trip_container.trip %>
+</p>
+
+<p>
+  <strong>Container number:</strong>
+  <%= @trip_container.container_number %>
+</p>
+
+<p>
+  <strong>Container height:</strong>
+  <%= @trip_container.container_height %>
+</p>
+
+<p>
+  <strong>Container weight:</strong>
+  <%= @trip_container.container_weight %>
+</p>
+
+<p>
+  <strong>Container length:</strong>
+  <%= @trip_container.container_length %>
+</p>
+
+<p>
+  <strong>Container gross weight:</strong>
+  <%= @trip_container.container_gross_weight %>
+</p>
+
+<p>
+  <strong>Container net weight:</strong>
+  <%= @trip_container.container_net_weight %>
+</p>
+
+<p>
+  <strong>Container tare:</strong>
+  <%= @trip_container.container_tare %>
+</p>
+
+<p>
+  <strong>Container commodity:</strong>
+  <%= @trip_container.container_commodity %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @trip_container.customer %>
+</p>
+
+<%= link_to 'Edit', edit_trip_container_path(@trip_container) %> |
+<%= link_to 'Back', trip_containers_path %>

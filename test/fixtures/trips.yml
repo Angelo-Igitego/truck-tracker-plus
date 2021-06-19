@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  truck: one
+  shipment: one
+  driver_id: 1
+  number: MyString
+  loading_port_id: 1
+  offloading_site: MyString
+  onloaded_at: 2021-06-19 13:07:29
+  offloaded_at: MyString
+
+two:
+  truck: two
+  shipment: two
+  driver_id: 1
+  number: MyString
+  loading_port_id: 1
+  offloading_site: MyString
+  onloaded_at: 2021-06-19 13:07:29
+  offloaded_at: MyString

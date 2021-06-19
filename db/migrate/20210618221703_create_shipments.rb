@@ -2,8 +2,9 @@ class CreateShipments < ActiveRecord::Migration[5.1]
   def change
     create_table :shipments do |t|
       t.string :number
+      t.references :customer, foreign_key: true
       t.datetime :documents_received_at
-      t.references :vessel, foreign_key: true
+      t.string :vessel_name
       t.references :shipping_line, foreign_key: true
       t.integer :loading_port_id
       t.integer :offloading_port_id

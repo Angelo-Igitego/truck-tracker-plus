@@ -1,0 +1,67 @@
+<%= form_with(model: trip_update, local: true) do |form| %>
+  <% if trip_update.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trip_update.errors.count, "error") %> prohibited this trip_update from being saved:</h2>
+
+      <ul>
+      <% trip_update.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :trip_id %>
+    <%= form.text_field :trip_id, id: :trip_update_trip_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location_details %>
+    <%= form.text_field :location_details, id: :trip_update_location_details %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eta_border %>
+    <%= form.datetime_select :eta_border, id: :trip_update_eta_border %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eta_site %>
+    <%= form.datetime_select :eta_site, id: :trip_update_eta_site %>
+  </div>
+
+  <div class="field">
+    <%= form.label :updated_by_user_id %>
+    <%= form.number_field :updated_by_user_id, id: :trip_update_updated_by_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :trip_update_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :trip_update_longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :trip_update_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :province %>
+    <%= form.text_field :province, id: :trip_update_province %>
+  </div>
+
+  <div class="field">
+    <%= form.label :district %>
+    <%= form.text_field :district, id: :trip_update_district %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

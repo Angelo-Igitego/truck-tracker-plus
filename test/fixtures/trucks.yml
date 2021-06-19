@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyString
+  tare: 9.99
+  license_number: MyString
+  unique_number: MyString
+
+two:
+  model: MyString
+  tare: 9.99
+  license_number: MyString
+  unique_number: MyString

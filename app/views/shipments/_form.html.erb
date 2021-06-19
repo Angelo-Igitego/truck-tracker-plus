@@ -22,10 +22,8 @@
 </div>
 
 <div class="field">
-  <%= form.label :vessel_id %>
-  <%#= form.text_field :vessel_id, id: :shipment_vessel_id %>
-
-  <%= form.collection_select :vessel_id, Vessel.all, :id,:name,{ include_blank: "-- Select one --"}, required: true %>
+  <%= form.label :vessel_name %>
+  <%= form.text_field :vessel_name %>
 </div>
 
 <div class="field">

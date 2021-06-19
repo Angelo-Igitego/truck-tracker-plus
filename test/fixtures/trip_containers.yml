@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trip: one
+  container_number: MyString
+  container_height: 9.99
+  container_weight: 9.99
+  container_length: 9.99
+  container_gross_weight: 9.99
+  container_net_weight: 9.99
+  container_tare: 9.99
+  container_commodity: MyString
+  customer: one
+
+two:
+  trip: two
+  container_number: MyString
+  container_height: 9.99
+  container_weight: 9.99
+  container_length: 9.99
+  container_gross_weight: 9.99
+  container_net_weight: 9.99
+  container_tare: 9.99
+  container_commodity: MyString
+  customer: two

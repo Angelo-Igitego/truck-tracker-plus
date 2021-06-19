@@ -74,6 +74,6 @@ class ShipmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def shipment_params
-      params.require(:shipment).permit(:number, :documents_received_at, :vessel_id, :shipping_line_id, :loading_port_id, :offloading_port_id, :eta_to_offloading_port, :bearthed_at, :discharged_at, :shipper_name, :remarks)
+      params.require(:shipment).permit(:number, :documents_received_at, :vessel_name, :shipping_line_id, :loading_port_id, :offloading_port_id, :eta_to_offloading_port, :bearthed_at, :discharged_at, :shipper_name, :remarks)
     end
   end

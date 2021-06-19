@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @truck.model %>
+</p>
+
+<p>
+  <strong>Tare:</strong>
+  <%= @truck.tare %>
+</p>
+
+<p>
+  <strong>License number:</strong>
+  <%= @truck.license_number %>
+</p>
+
+<p>
+  <strong>Unique number:</strong>
+  <%= @truck.unique_number %>
+</p>
+
+<%= link_to 'Edit', edit_truck_path(@truck) %> |
+<%= link_to 'Back', trucks_path %>
