@@ -22,14 +22,14 @@
     <% @shipments.each do |shipment| %>
       <tr>
         <td><%= shipment.number %></td>
-        <td><%= shipment.documents_received_at %></td>
+        <td><%= l shipment.documents_received_at %></td>
         <td><%= shipment.vessel.name %></td>
         <td><%= shipment.shipping_line.name %></td>
         <td><%= shipment.loading_port.description %></td>
         <td><%= shipment.offloading_port.description %></td>
-        <td><%= shipment.eta_to_offloading_port %></td>
-        <td><%= shipment.bearthed_at %></td>
-        <td><%= shipment.discharged_at %></td>
+        <td><%= l shipment.eta_to_offloading_port %></td>
+        <td><%= l shipment.bearthed_at %></td>
+        <td><%= l shipment.discharged_at %></td>
         <td><%= shipment.shipper_name %></td>
         <td><%= shipment.remarks %></td>
         <td><%= link_to 'Show', shipment %></td>
