@@ -1,55 +1,95 @@
-<!DOCTYPE html>
-<html>
-<head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!doctype html>
+  <html lang="en">
+  <head>
+   <%= csrf_meta_tags %>
+   <meta charset="utf-8">
 
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
- <title>CargoTracker</title>
+   <title>P.I.C CargoTracker</title>
 
- <%= csrf_meta_tags %>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+   <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+   <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 
 
+ </head>
 
- <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
- <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ <body class="">
 
+ <!--  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" href="/"><img src="https://www.primeintlcarriers.com/wp-content/uploads/2017/10/Logo_update.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-</head>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">  
+        
+      </ul>
+    </div>
+  </nav>
+-->
 
-<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="https://www.primeintlcarriers.com/wp-content/uploads/2017/10/Logo_update.png" alt="" width="114">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+       <%= link_to "Tracking", '/tracking', class: "nav-link nav-item" -%>
+       <%= link_to "Shipments", containers_path, class: "nav-link nav-item" -%>
 
+       <%= link_to "Vehicles", trucks_path, class: "nav-link nav-item" -%>
+       <%= link_to "Drivers", "#", class: "nav-link nav-item" -%>     
+       <%= link_to "Ports", ports_path, class: "nav-link nav-item" -%>
+     </ul>
+   </div>
+ </div>
+</nav>
 
- <!-- Alerts notification -->
- <% if alert%>
- <article class="message is-danger">
-  <div class="message-body">
-    <p class=" has-text-centered"><%= alert %></p>
+<!-- Page Content -->
+<div class="container-fluid">
+  <!-- Alerts notification -->
+  <% if alert or notice %>
+  <div class="alert alert-primary" role="alert">
+    <%= alert if alert %>
+    <%= notice if notice %>
   </div>
-</article>
-<% end %>
 
-<!-- Notices notification -->
-<% if notice %>
-<article class="message is-success">
-  <div class="message-body">
-    <p class="notice has-text-centered"><%= notice %></p>
-  </div>
-</article>
-<% end %>
+  <% end %>
 
 
-<ul>
- <li><%= link_to "Shipments", shipments_path -%></li>
- <!-- <li><%#= link_to "Drivers", drivers_path -%></li> -->
- <li><%= link_to "Ports", ports_path -%></li>
-</ul>
-<%= yield %>
+  <%= yield %>
+</div>
+
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </body>
 
 </html>
+
+
+<style type="text/css">
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+</style>

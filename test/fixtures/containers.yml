@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 
+  driver: one
+  docs_rcd: 2021-06-20 20:20:32
+  shipper: MyString
+  port_of_loading: 1
+  commodity: MyString
+  bill_of_ladding_number: MyString
+  service: MyString
+  size: 9.99
+  gross_weight_kgs: 9.99
+  line: one
+  eta_dar: 2021-06-20 20:20:32
+  vessel_berthe_date: 2021-06-20 20:20:32
+  vessel_discharge_date: 2021-06-20 20:20:32
+  loading_at_dar: 2021-06-20 20:20:32
+  truck_number: MyString
+  truck_position: MyString
+  eta_border: 2021-06-20 20:20:32
+  etd_border: 2021-06-20 20:20:32
+  offloading_site: MyString
+  eta_site: 2021-06-20 20:20:32
+  offloaded: MyString
+  remark: MyText
+
+two:
+  number: 
+  driver: two
+  docs_rcd: 2021-06-20 20:20:32
+  shipper: MyString
+  port_of_loading: 1
+  commodity: MyString
+  bill_of_ladding_number: MyString
+  service: MyString
+  size: 9.99
+  gross_weight_kgs: 9.99
+  line: two
+  eta_dar: 2021-06-20 20:20:32
+  vessel_berthe_date: 2021-06-20 20:20:32
+  vessel_discharge_date: 2021-06-20 20:20:32
+  loading_at_dar: 2021-06-20 20:20:32
+  truck_number: MyString
+  truck_position: MyString
+  eta_border: 2021-06-20 20:20:32
+  etd_border: 2021-06-20 20:20:32
+  offloading_site: MyString
+  eta_site: 2021-06-20 20:20:32
+  offloaded: MyString
+  remark: MyText

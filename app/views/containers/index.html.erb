@@ -1,0 +1,89 @@
+<div class="container">
+  
+  <div class="wp-50 wm-100 pt-4 pl-3">
+    <h3 style="; text-align: left">Shipments list</h3>
+    <br>
+
+    <table id="example" class="table table-responsive table-striped table-bordered" style="width: 100%;">
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Driver</th>
+          <th>Docs rcd</th>
+          <th>Shipper</th>
+          <th>Port of loading</th>
+          <th>Commodity</th>
+          <th>Bill of ladding number</th>
+          <th>Service</th>
+          <th>Size</th>
+          <th>Gross weight kgs</th>
+          <th>Line</th>
+          <th>Eta dar</th>
+          <th>Vessel berthe date</th>
+          <th>Vessel discharge date</th>
+          <th>Loading at dar</th>
+          <th>Truck number</th>
+          <th>Truck position</th>
+          <th>Eta border</th>
+          <th>Etd border</th>
+          <th>Offloading site</th>
+          <th>Eta site</th>
+          <th>Offloaded</th>
+          <th>Remark</th>
+          <th colspan="">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @containers.each do |container| %>
+        <tr>
+          <td><%= container.number %></td>
+          <td><%= container.driver.name %></td>
+          <td><%= l container.docs_rcd %></td>
+          <td><%= container.shipper %></td>
+          <td><%= container.port_of_loading.name %></td>
+          <td><%= container.commodity %></td>
+          <td><%= container.bill_of_ladding_number %></td>
+          <td><%= container.service %></td>
+          <td><%= container.size %></td>
+          <td><%= container.gross_weight_kgs %></td>
+          <td><%= container.shipping_line.name %></td>
+          <td><%= l container.eta_dar %></td>
+          <td><%=  container.vessel_berthe_date %></td>
+          <td><%= l container.vessel_discharge_date %></td>
+          <td><%= l container.loading_at_dar %></td>
+          <td><%= container.truck.unique_number %></td>
+          <td><%= container.truck_position %></td>
+          <td><%= l container.eta_border %></td>
+          <td><%= l container.etd_border %></td>
+          <td><%= container.offloading_site %></td>
+          <td><%= l container.eta_site %></td>
+          <td><%= container.offloaded %></td>
+          <td><%= container.remark %></td>
+          <td><%= link_to 'Show', container %>
+            <%= link_to 'Edit', edit_container_path(container) %>
+            <%= link_to 'Destroy', container, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to 'New Container', new_container_path , class: "btn btn-primary" %>
+
+    </div>
+  </div>
+
+  <style type="text/css">
+  .icons i {
+    margin-left: 20px
+  }
+</style>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable();
+  } );
+</script>

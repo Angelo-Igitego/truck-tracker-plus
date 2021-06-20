@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
   
+  root 'containers#tracking', as: :root
+  get '/tracking', to: "containers#tracking", as: :tracking 
+  get '/tracking/:number', to: "containers#tracking"
+  resources :containers
   resources :trip_updates
   resources :trip_containers
   resources :customers
   resources :trips
   resources :trucks
-  get '/track/:number', to: "shipments#track", as: :track_shipment
-
-  root 'shipments#track', as: :root
-
-
   resources :shipments
-
   resources :ports
   resources :shipping_lines
   devise_for :users

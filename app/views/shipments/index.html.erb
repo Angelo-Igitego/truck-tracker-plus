@@ -1,45 +1,98 @@
-<h1>Shipments</h1>
+<div class="" style="background: white;">
+  <h3 style="margin-top: 2rem; text-align: left">Shipments</h3>
+  <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Number</th>
-      <th>Documents received at</th>
-      <th>Vessel</th>
-      <th>Shipping line</th>
-      <th>Loading port</th>
-      <th>Offloading port</th>
-      <th>Eta to offloading port</th>
-      <th>Bearthed at</th>
-      <th>Discharged at</th>
-      <th>Shipper name</th>
-      <th>Remarks</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @shipments.each do |shipment| %>
+  <table id="example" class="table table-responsive table-striped table-bordered" style="">
+    <thead>
       <tr>
-        <td><%= shipment.number %></td>
-        <td><%= l shipment.documents_received_at %></td>
-        <td><%= shipment.vessel_name %></td>
-        <td><%= shipment.shipping_line.name %></td>
-        <td><%= shipment.loading_port.description %></td>
-        <td><%= shipment.offloading_port.description %></td>
-        <td><%= l shipment.eta_to_offloading_port %></td>
-        <td><%= l shipment.bearthed_at %></td>
-        <td><%= l shipment.discharged_at %></td>
-        <td><%= shipment.shipper_name %></td>
-        <td><%= shipment.remarks %></td>
-        <td><%= link_to 'Show', shipment %></td>
-        <td><%= link_to 'Edit', edit_shipment_path(shipment) %></td>
-        <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <th> No.      </th>
+        <th> DOCS RCD </th>
+        <th> SHIPPER  </th>
+        <th> POL      </th>
+        <th> COMMODITY </th>
+        <th> BL NO   </th>
+        <th> CONT NO </th>
+        <th> SERVICE </th>
+        <th> Size    </th>
+        <th> G.W Kgs </th>
+        <th> LINE    </th>
+        <th> ETA DAR </th>
+        <th> VESSEL BERTHE DATE    </th>
+        <th> VESSEL DISCHARGE DATE </th>
+        <th> LOADING AT DAR </th>
+        <th> TRUCK No       </th>
+        <th> TRUCK POSITION </th>
+        <th> ETA BORDER </th>
+        <th> ETD BORDER </th>
+        <th> OFFLOADING SITE </th>
+        <th> ETA SITE  </th>
+        <th> OFFLOADED </th>
+        <th> REMARK    </th>
+        <th> ACTION    </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shipments.each do |shipment| %>
 
-<br>
+        <tr>
+          <td> <%= shipment.number %> </td>
+          <td> <%= l shipment.documents_received_at %> </td>
+          <td> <%= shipment.shipper_name %> </td>
+          <td> <%= shipment.loading_port.description %> </td>
+          <td> Commodity          </td>
+          <td> Bill of lading no. </td>
+          <td> container no. </td>
+          <td> Service </td>
+          <td> Size    </td>
+          <td> GW Kgs  </td>
+          <td> <%= shipment.shipping_line.name %> </td>
+          <td> eta dar </td>
+          <td> <%= l shipment.bearthed_at %>   </td>
+          <td> <%= l shipment.discharged_at %> </td>
+          <td> Loading at Dar </td>
+          <td> Truck no       </td>
+          <td> Truck position </td>
+          <td> eta border     </td>
+          <td> etd border     </td>
+          <td> offloading site </td>
+          <td> eta site     </td>
+          <td> offloaded    </td>
+          <td> <%= shipment.remarks %> </td>
+          <td>
+            <div class="p-2 icons"> 
+              <%= link_to shipment, class: "btn" do %>
+              <i class="fa fa-share text-success"></i> 
+              <% end %>
+              <%= link_to edit_shipment_path(shipment), class: "btn" do %>
+              <i class="fa fa-pencil text-primary"></i>
+              <% end %>
+              <%#= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </td>
+        </tr>
+        <% end -%>
+      </tbody>
+    </table>
+  </div>
+  <br>
 
-<%= link_to 'New Shipment', new_shipment_path %>
+  <%= link_to 'New Shipment', new_shipment_path, class: "btn btn-primary" %>
+
+
+  <style type="text/css">
+  body {
+    /*background-color: #f8f9fa*/
+  }
+
+
+  .icons i {
+    margin-left: 20px
+  }
+</style>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable();
+  } );
+</script>

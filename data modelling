@@ -34,19 +34,12 @@ umu client si ngombwa ko yinjira muri systeme. ashobora kwandika aho ashaka akab
 	Container izanywe n'imodoka iyi n'iyi iri aha 
 
 a CUSTOMER has many SHIPMENTs
-
 a VESSEL has many SHIPMENTs
-
 a SHIPMENT has many CONTAINERS 
-
 a TRUCK can have many CONTAINERS
-
 a shipment has an INVOICE
-
 an invoice has many INVOICE_ITEMS
-
 a shipment has a LINE
-
 //a SHIPMENT can have many CONTAINERS through TRUCKS
 
 
@@ -157,6 +150,4 @@ k. INVOICE_ITEM
 	total)
 
 
-
- rails g scaffold TripContainer t
-rip:references container_number container_height:decimal container_weight:decimal container_length:decimal container_gross_weight:decimal container_net_weight:decimal container_tare:decimal container_commodity customer:references
+Container 

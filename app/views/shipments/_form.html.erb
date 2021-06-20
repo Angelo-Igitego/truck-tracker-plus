@@ -1,4 +1,7 @@
-<%= form_with(model: shipment, local: true) do |form| %>
+<%#= form_with(model: shipment, local: true) do |form| %>
+<%= simple_form_for(@shipment, local: true) do |form| %>
+
+<%= -%>
 <% if shipment.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
@@ -11,64 +14,23 @@
 </div>
 <% end %>
 
-<div class="field">
-  <%= form.label :number %>
-  <%= form.text_field :number, id: :shipment_number %>
-</div>
-
-<div class="field">
-  <%= form.label :documents_received_at %>
-  <%= form.datetime_select :documents_received_at, id: :shipment_documents_received_at %>
-</div>
-
-<div class="field">
-  <%= form.label :vessel_name %>
-  <%= form.text_field :vessel_name %>
-</div>
-
-<div class="field">
-  <%= form.label :shipping_line_id %>
-
-  <%= form.collection_select :shipping_line_id, ShippingLine.all, :id, :name,{ include_blank: "-- Select one --"}, required: true %>
-</div>
-
-<div class="field">
-  <%= form.label :loading_port_id %>
-  <%= form.collection_select :loading_port_id, Port.all, :id,:name,{ include_blank: "-- Select one --"}, required: true %>
-
-</div>
-
-<div class="field">
-  <%= form.label :offloading_port_id %>
-  <%= form.collection_select :offloading_port_id, Port.all, :id,:name,{ include_blank: "-- Select one --"}, required: true %>
-</div>
-
-<div class="field">
-  <%= form.label :eta_to_offloading_port %>
-  <%= form.datetime_select :eta_to_offloading_port, id: :shipment_eta_to_offloading_port %>
-</div>
-
-<div class="field">
-  <%= form.label :bearthed_at %>
-  <%= form.datetime_select :bearthed_at, id: :shipment_bearthed_at %>
-</div>
-
-<div class="field">
-  <%= form.label :discharged_at %>
-  <%= form.datetime_select :discharged_at, id: :shipment_discharged_at %>
-</div>
-
-<div class="field">
-  <%= form.label :shipper_name %>
-  <%= form.text_field :shipper_name, id: :shipment_shipper_name %>
-</div>
-
-<div class="field">
-  <%= form.label :remarks %>
-  <%= form.text_area :remarks, id: :shipment_remarks %>
-</div>
+<div class="">
+  <%= form.input :number, id: :shipment_number %>
+  <%= form.input :documents_received_at %>
+  <%= form.input :vessel_name %>
+  <%= form.input :shipping_line_id, collection: ShippingLine.all -%>
+  <%= form.input :loading_port_id, collection: Port.all -%>
+  <%= form.input :offloading_port_id, collection: Port.all -%>
+  <%= form.input :eta_to_offloading_port %>
+  <%= form.input :bearthed_at %>
+  <%= form.input :discharged_at %>
+  <%= form.input :shipper_name %>
+  <%= form.input :remarks %>
 
 <div class="actions">
-  <%= form.submit %>
+  <%= form.button "submit", "Submit" %>
 </div>
 <% end %>
+
+
+<br>

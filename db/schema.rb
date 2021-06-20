@@ -10,10 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210619164745) do
+ActiveRecord::Schema.define(version: 20210620182032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "containers", force: :cascade do |t|
+    t.string "number", null: false
+    t.integer "driver_id"
+    t.datetime "docs_rcd"
+    t.string "shipper"
+    t.integer "port_of_loading_id"
+    t.string "commodity"
+    t.string "bill_of_ladding_number"
+    t.string "service"
+    t.decimal "size"
+    t.decimal "gross_weight_kgs"
+    t.bigint "shipping_line_id"
+    t.datetime "eta_dar"
+    t.datetime "vessel_berthe_date"
+    t.datetime "vessel_discharge_date"
+    t.datetime "loading_at_dar"
+    t.bigint "truck_id"
+    t.string "truck_position"
+    t.datetime "eta_border"
+    t.datetime "etd_border"
+    t.string "offloading_site"
+    t.datetime "eta_site"
+    t.boolean "offloaded"
+    t.text "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shipping_line_id"], name: "index_containers_on_shipping_line_id"
+    t.index ["truck_id"], name: "index_containers_on_truck_id"
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "business_name"
@@ -154,6 +184,8 @@ ActiveRecord::Schema.define(version: 20210619164745) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "containers", "shipping_lines"
+  add_foreign_key "containers", "trucks"
   add_foreign_key "shipments", "customers"
   add_foreign_key "shipments", "shipping_lines"
   add_foreign_key "trip_containers", "customers"

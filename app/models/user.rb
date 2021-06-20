@@ -7,9 +7,13 @@ class User < ApplicationRecord
 
   self.inheritance_column = :type
 
-   def self.types
+  def self.types
     ['Admin', 'Driver', 'Operations', 'Customer']
   end
 
+
+  def name 
+    "#{self.first_name} #{self.last_name}"   
+  end
 
 end
