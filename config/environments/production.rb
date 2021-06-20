@@ -93,4 +93,7 @@ Rails.application.configure do
 
   # set the timezone to cairo for better datetime management
   config.time_zone = "Cairo"
+
+  config.serve_static_assets = true
+  config.assets.compile = true
 end
