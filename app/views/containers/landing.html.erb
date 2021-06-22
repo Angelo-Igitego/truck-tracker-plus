@@ -1,0 +1,88 @@
+<!-- Masthead-->
+<div class="masthead" id="masthead">
+  <div class="position-relative h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-xl-6 mx-auto">
+        <div class="text-center text-white container">
+          <!-- Page heading-->
+          <h1 class="mb-5">Track your shipment on the GO!</h1>
+          <form method="get" id="track_form">
+            <div class="input-group input-group-lg">
+              <input class="form-control" type="text" placeholder="Enter tracking number..." name="number" style="padding: 2rem 1.25rem;" required id="tracking_number">
+              <button type="submit" class="btn btn-primary btn-lg" id="track_button">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h4 class="modal-title text-center"> <span id="checkmark" style="width: 30%"> </span> Your shipment is on the way</h4>
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body card border-success ">
+        <p id="modal_body_content"> </p>
+        <p id="container_number"> </p>
+        <p id="bill_of_lading_number"> </p>
+        <p id="commodity"> </p>
+        <p id="eta_site"> </p>
+        <p id="offloaded"> </p>
+        <p id="remark"> </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  var track_button = $("#track_button");
+  track_button.click(function(e){
+    e.preventDefault();
+
+    $('#myModal').modal('toggle');
+    var tracking_number = $("#tracking_number").val();
+    $("#checkmark").html('<img style="width: 10%; height:8%; margin: auto" src="https://img.icons8.com/flat-round/64/000000/checkmark.png"/>')
+    $("#container_number").html("");
+    $("#bill_of_lading_number").html("");
+    $("#commodity").html("");
+    $("#eta_site").html("");
+    $("#offloaded").html("");
+    $("#remark").html("");
+
+    var url = '/tracking?number=' + tracking_number;
+    $.ajax({
+      url:  url,
+      type: 'get',
+
+      success: function(data){
+        console.dir(data);
+        $("#container_number").html("Container No.: " + data["number"]);
+        $("#bill_of_lading_number").html("BOL: " + data["bill_of_ladding_number"]);
+        $("#commodity").html("Commodity: " + data["commodity"]);
+        $("#eta_site").html("ETA Site: " + data["eta_site"]);
+        $("#offloaded").html("Offloaded: " + data["offloaded"]);
+        $("#remark").html("Remarks: " + data["remark"]);
+
+      }
+    })
+
+
+
+  })
+
+
+</script>

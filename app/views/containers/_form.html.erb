@@ -5,10 +5,11 @@
 
 <div class="form-inputs">
   <%= f.input :number %>
-  <%= f.association :driver %>
   <%= f.input :docs_rcd, as: :datetime, html5: true  %>
   <%= f.input :shipper %>
   <%= f.input :port_of_loading_id, collection: Port.all  %>
+  <%= f.association :truck %>
+  <%= f.association :driver %>
   <%= f.input :commodity %>
   <%= f.input :bill_of_ladding_number %>
   <%= f.input :service %>
@@ -19,7 +20,8 @@
   <%= f.input :vessel_berthe_date, html5: true %>
   <%= f.input :vessel_discharge_date, html5: true %>
   <%= f.input :loading_at_dar, html5: true %>
-  <%= f.association :truck %>
+  <%= f.input :departed_dar_at, html5: true %>
+
   <%= f.input :truck_position %>
   <%= f.input :eta_border, html5: true %>
   <%= f.input :etd_border, html5: true %>

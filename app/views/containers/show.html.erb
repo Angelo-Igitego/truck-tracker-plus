@@ -55,7 +55,7 @@
 
 <p>
   <strong>ETA dar:</strong>
-  <%= l @container.ETA_dar %>
+  <%= l @container.eta_dar %>
 </p>
 
 <p>
@@ -74,6 +74,11 @@
 </p>
 
 <p>
+  <strong>Departure from DAR:</strong>
+  <%= @container&.departed_dar_at %>
+</p>
+
+<p>
   <strong>Truck number:</strong>
   <%= @container.truck.unique_number %>
 </p>
@@ -85,7 +90,7 @@
 
 <p>
   <strong>ETA border:</strong>
-  <%= l @container.ETA_border %>
+  <%= l @container.eta_border %>
 </p>
 
 <p>
@@ -100,7 +105,7 @@
 
 <p>
   <strong>ETA site:</strong>
-  <%= l @container.ETA_site %>
+  <%= l @container.eta_site %>
 </p>
 
 <p>

@@ -2,7 +2,21 @@ class ContainersController < ApplicationController
   before_action :set_container, only: %i[ show edit update destroy tracking]
 
 
+
   def tracking
+
+    respond_to do |format|
+      if @container
+        format.json { render json: @container }
+      else
+        @container = nil
+        format.json { render json: "this doesn't exist", head: 500, data: {foo: "bar"}  }
+      end
+    end
+  end
+
+
+  def landing_page
   end
 
   # GET /containers or /containers.json
@@ -66,12 +80,12 @@ class ContainersController < ApplicationController
       if params[:id]
         @container = Container.find(params[:id])
       elsif params[:number]
-        @container = Container.find_by(number: params[:number])
+        @container = Container.find_by_number(params[:number])
       end
     end
 
     # Only allow a list of trusted parameters through.
     def container_params
-      params.require(:container).permit(:number, :driver_id, :docs_rcd, :shipper, :port_of_loading_id, :commodity, :bill_of_ladding_number, :service, :size, :gross_weight_kgs, :shipping_line_id, :eta_dar, :vessel_berthe_date, :vessel_discharge_date, :loading_at_dar, :truck_id, :truck_position, :eta_border, :etd_border, :offloading_site, :eta_site, :offloaded, :remark)
+      params.require(:container).permit(:number, :driver_id, :docs_rcd, :shipper, :port_of_loading_id, :commodity, :bill_of_ladding_number, :service, :size, :gross_weight_kgs, :shipping_line_id, :eta_dar, :vessel_berthe_date, :vessel_discharge_date, :loading_at_dar, :truck_id, :truck_position, :eta_border, :etd_border, :offloading_site, :eta_site, :offloaded, :remark, :departed_dar_at)
     end
   end
