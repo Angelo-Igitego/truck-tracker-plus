@@ -1,27 +1,44 @@
-<h1>Ports</h1>
+<div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Country</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="wp-75 pt-4">
+    <div class="table-responsive">
 
-  <tbody>
-    <% @ports.each do |port| %>
-      <tr>
-        <td><%= port.name %></td>
-        <td><%= port.country %></td>
-        <td><%= link_to 'Show', port %></td>
-        <td><%= link_to 'Edit', edit_port_path(port) %></td>
-        <td><%= link_to 'Destroy', port, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <h3>Shipping ports list</h3>
+      <table id="example" class="table table-responsive-sm table-striped table-bordered">
 
-<br>
+       <thead>
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+          <th colspan=""></th>
+        </tr>
+      </thead>
 
-<%= link_to 'New Port', new_port_path %>
+      <tbody>
+        <% @ports.each do |port| %>
+        <tr>
+          <td><%= port.name %></td>
+          <td><%= port.country %></td>
+          <td>
+            <%= link_to 'Show', port %>
+            <%= link_to 'Edit', edit_port_path(port) %>
+            <%= link_to 'Destroy', port, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <%= link_to 'New Port', new_port_path , class: "btn btn-primary" %>
+
+</div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable();
+  } );
+</script>
