@@ -1,8 +1,9 @@
 @import "bootstrap-datetimepicker";
 @import "bootstrap";
+@import "datatables";
 
-    
-  
+
+
 
 .input-group-lg > .form-control,
 .input-group-lg > .form-select,
@@ -13,37 +14,38 @@
   border-radius: 0.3rem;
 }
 
- 
+
+#masthead {
+  height:100vh;
+  position: relative;
+  /*min-width: 100%;*/
+  background-color: #343a40;
+  background: url("https://www.primeintlcarriers.com/wp-content/uploads/revslider/main_slider/slider_1.jpg") no-repeat center;
+  background-size: cover;
+}
+
+
+#masthead:before {
+  content: "";
+  position: absolute;
+  background-color: #1c375e;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
+#masthead h1, #masthead .h1 {
+  font-size: 2rem;
+}
+@media (min-width: 768px) {
   #masthead {
-    position: relative;
-    background-color: #343a40;
-    background: url("https://www.primeintlcarriers.com/wp-content/uploads/revslider/main_slider/slider_1.jpg") no-repeat center;
-    background-size: cover;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-  #masthead:before {
-    content: "";
-    position: absolute;
-    background-color: #1c375e;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
   }
   #masthead h1, #masthead .h1 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
-  @media (min-width: 768px) {
-    #masthead {
-      padding-top: 12rem;
-      padding-bottom: 12rem;
-    }
-    #masthead h1, #masthead .h1 {
-      font-size: 3rem;
-    }
-  }
+}
 
- 
-@import "datatables";
+
