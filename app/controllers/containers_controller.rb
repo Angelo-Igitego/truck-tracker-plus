@@ -9,8 +9,7 @@ class ContainersController < ApplicationController
       if @container
         format.json { render json: @container }
       else
-        @container = nil
-        format.json { render json: "this doesn't exist", head: 500, data: {foo: "bar"}  }
+        format.json { render json: "this doesn't exist", head: 500  }
       end
     end
   end

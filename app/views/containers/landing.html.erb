@@ -23,11 +23,14 @@
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" style="display: grid; grid-template-columns: 100%; " >
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 style="width: 10%; margin:  auto; display: grid; grid-template-columns: 100%;">
+          <span id="checkmark" > </span>
+        </h4>
+             <h4 class="modal-title text-center"> Your shipment is on the way</h4>
 
-        <h4 class="modal-title text-center"> <span id="checkmark" style="width: 30%"> </span> Your shipment is on the way</h4>
-
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
       </div>
       <div class="modal-body card border-success ">
         <p id="modal_body_content"> </p>
@@ -38,13 +41,21 @@
         <p id="offloaded"> </p>
         <p id="remark"> </p>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <br>
+      <!-- <br> -->
+
+      <div class="modal- col-md-12 text-center">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
       </div>
+      <br>
+      <!-- <br> -->
     </div>
 
   </div>
 </div>
+
+<%#if flash[:notice] == 'success' 
+ -%>  
 
 
 
@@ -55,7 +66,7 @@
 
     $('#myModal').modal('toggle');
     var tracking_number = $("#tracking_number").val();
-    $("#checkmark").html('<img style="width: 10%; height:8%; margin: auto" src="https://img.icons8.com/flat-round/64/000000/checkmark.png"/>')
+    $("#checkmark").html('<img style="width: 100%; height:100%; margin: auto" src="https://img.icons8.com/flat-round/64/000000/checkmark.png"/>')
     $("#container_number").html("");
     $("#bill_of_lading_number").html("");
     $("#commodity").html("");
@@ -70,7 +81,7 @@
 
       success: function(data){
         console.dir(data);
-        $("#container_number").html("Container No.: " + data["number"]);
+        $("#container_number").html("Container n<sup>o</sup>: " + data["number"]);
         $("#bill_of_lading_number").html("BOL: " + data["bill_of_ladding_number"]);
         $("#commodity").html("Commodity: " + data["commodity"]);
         $("#eta_site").html("ETA Site: " + data["eta_site"]);
@@ -86,3 +97,5 @@
 
 
 </script>
+
+<%# end -%>
