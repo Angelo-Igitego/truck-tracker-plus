@@ -1,16 +1,15 @@
 class ContainersController < ApplicationController
-  before_action :set_container, only: %i[ show edit update destroy tracking]
+  before_action :set_container, only: %i[ show edit update destroy]
 
 
 
   def tracking
-    respond_to do |format|
-      if @container
-        format.html { }
-        format.json { render json: @container }
-      else
-        format.json { render json: "this doesn't exist", head: 500  }
-      end
+    @container = Container.find_by_number(params[:number])
+    
+    if @container
+      render json: @container
+    else
+      render js: "" 
     end
   end
 

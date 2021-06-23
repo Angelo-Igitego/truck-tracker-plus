@@ -19,16 +19,17 @@
 </div>
 
 
-<div id="myModal" class="modal fade" role="dialog">
+<div id="tracking_confirmation_modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header" style="display: grid; grid-template-columns: 100%; " >
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
         <h4 style="width: 10%; margin:  auto; display: grid; grid-template-columns: 100%;">
           <span id="checkmark" > </span>
         </h4>
-             <h4 class="modal-title text-center"> Your shipment is on the way</h4>
+        <h4 class="modal-title text-center"> Your shipment is on the way</h4>
 
         
       </div>
@@ -54,8 +55,40 @@
   </div>
 </div>
 
-<%#if flash[:notice] == 'success' 
- -%>  
+
+<!-- =================== -->
+
+
+<div id="tracking_denial_modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="display: grid; grid-template-columns: 100%; " >
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+        <h4 style="width: 10%; margin:  auto; display: grid; grid-template-columns: 100%;">
+          <span id="denial_checkmark"> </span>
+
+        </h4>
+        <h4 class="modal-title text-center"> Information missing </h4>
+
+        
+      </div>
+      <div class="modal-body card border-danger text-center ">
+        <p>Please check number and try again</p>
+      </div>
+      <br>
+      <!-- <br> -->
+
+      <div class="modal- col-md-12 text-center">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+      <br>
+      <!-- <br> -->
+    </div>
+
+  </div>
+</div>
 
 
 
@@ -64,7 +97,7 @@
   track_button.click(function(e){
     e.preventDefault();
 
-    $('#myModal').modal('toggle');
+
     var tracking_number = $("#tracking_number").val();
     $("#checkmark").html('<img style="width: 100%; height:100%; margin: auto" src="https://img.icons8.com/flat-round/64/000000/checkmark.png"/>')
     $("#container_number").html("");
@@ -74,13 +107,13 @@
     $("#offloaded").html("");
     $("#remark").html("");
 
-    var url = '/tracking?number=' + tracking_number;
+    var url = '/tracking?number='+tracking_number;
     $.ajax({
       url:  url,
       type: 'get',
-
       success: function(data){
-        console.dir(data);
+       if(data["number"]){
+        $('#tracking_confirmation_modal').modal('toggle');
         $("#container_number").html("Container n<sup>o</sup>: " + data["number"]);
         $("#bill_of_lading_number").html("BOL: " + data["bill_of_ladding_number"]);
         $("#commodity").html("Commodity: " + data["commodity"]);
@@ -88,14 +121,17 @@
         $("#offloaded").html("Offloaded: " + data["offloaded"]);
         $("#remark").html("Remarks: " + data["remark"]);
 
+      } 
+
+      else 
+      {
+        $('#tracking_denial_modal').modal('toggle');
+
+        $("#denial_checkmark").html('<img style="width: 100%; height:100%; color: red; margin: auto;" src="https://img.icons8.com/glyph-neue/64/fa314a/error.png"/>')
+        // <img src=""/>
+
       }
-    })
-
-
-
+    }
   })
-
-
+  })
 </script>
-
-<%# end -%>
