@@ -113,12 +113,26 @@
       type: 'get',
       success: function(data){
        if(data["number"]){
+
+        console.log(new Date(data["eta_dar"]))
+
+        var offloaded;
+
+        if(data["offloaded"] === false) {
+          var offloaded = "No";
+        }
+
+        else {
+          // console.log("Loaded")
+          var offloaded = "Yes";
+        }
         $('#tracking_confirmation_modal').modal('toggle');
         $("#container_number").html("Container n<sup>o</sup>: " + data["number"]);
         $("#bill_of_lading_number").html("BOL: " + data["bill_of_ladding_number"]);
         $("#commodity").html("Commodity: " + data["commodity"]);
-        $("#eta_site").html("ETA Site: " + data["eta_site"]);
-        $("#offloaded").html("Offloaded: " + data["offloaded"]);
+        $("#eta_site").html("ETA Site: " + 
+          new Date(data["eta_site"]).toDateString());
+        $("#offloaded").html("Offloaded: " + offloaded);
         $("#remark").html("Remarks: " + data["remark"]);
 
       } 
@@ -127,9 +141,7 @@
       {
         $('#tracking_denial_modal').modal('toggle');
 
-        $("#denial_checkmark").html('<img style="width: 100%; height:100%; color: red; margin: auto;" src="https://img.icons8.com/glyph-neue/64/fa314a/error.png"/>')
-        // <img src=""/>
-
+        $("#denial_checkmark").html('<img style="width: 100%; height:100%; color: red; margin: auto;" src="https://img.icons8.com/glyph-neue/64/fa314a/error.png"/>');
       }
     }
   })

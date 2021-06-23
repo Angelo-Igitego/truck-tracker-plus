@@ -6,4 +6,8 @@ class Container < ApplicationRecord
   belongs_to :port_of_loading, class_name: "Port", foreign_key: "port_of_loading_id"
 
   validates_presence_of :number, :shipper, :commodity
+
+  def already_offloaded
+    self.offloaded? ? "Yes" : "No"    
+  end
 end
