@@ -13,11 +13,11 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery3
-//= require datatables
 //= require moment
 //= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
 //= require bootstrap
 //= require popper
+//= require datatables
 //= require_tree .
 
