@@ -1,14 +1,19 @@
+<div class="container">
 
+  <h3>Viewing Port information
+  </h3>
 
-<p>
-  <strong>Name:</strong>
-  <%= @port.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @port.name %>
+  </p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @port.country %>
-</p>
+  <p>
+    <strong>Country:</strong>
+    <%= @port.country %>
+  </p>
 
-<%= link_to 'Edit', edit_port_path(@port) %> |
-<%= link_to 'Back', ports_path %>
+  <%= link_to 'Edit', edit_port_path(@port) %> |
+  <%= link_to 'Back', ports_path %>
+
+</div>

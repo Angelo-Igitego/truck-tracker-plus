@@ -1,122 +1,129 @@
-<p>
-  <strong>Number:</strong>
-  <%= @container.number %>
-</p>
 
-<p>
-  <strong>Driver:</strong>
-  <%= @container.driver.name %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Docs rcd:</strong>
-  <%= @container.docs_rcd %>
-</p>
+  <h3> Container information </h3>  
 
-<p>
-  <strong>Shipper:</strong>
-  <%= @container.shipper %>
-</p>
+  <p>
+    <strong>Number:</strong>
+    <%= @container.number %>
+  </p>
 
-<p>
-  <strong>Port of loading:</strong>
-  <%= @container.port_of_loading.name %>
-</p>
+  <p>
+    <strong>Driver:</strong>
+    <%= @container.driver.name %>
+  </p>
 
-<p>
-  <strong>Commodity:</strong>
-  <%= @container.commodity %>
-</p>
+  <p>
+    <strong>Docs rcd:</strong>
+    <%= @container.docs_rcd %>
+  </p>
 
-<p>
-  <strong>Bill of ladding number:</strong>
-  <%= @container.bill_of_ladding_number %>
-</p>
+  <p>
+    <strong>Shipper:</strong>
+    <%= @container.shipper %>
+  </p>
 
-<p>
-  <strong>Service:</strong>
-  <%= @container.service %>
-</p>
+  <p>
+    <strong>Port of loading:</strong>
+    <%= @container.port_of_loading.name %>
+  </p>
 
-<p>
-  <strong>Size:</strong>
-  <%= @container.size %>
-</p>
+  <p>
+    <strong>Commodity:</strong>
+    <%= @container.commodity %>
+  </p>
 
-<p>
-  <strong>Gross weight kgs:</strong>
-  <%= @container.gross_weight_kgs %>
-</p>
+  <p>
+    <strong>Bill of ladding number:</strong>
+    <%= @container.bill_of_ladding_number %>
+  </p>
 
-<p>
-  <strong>Line:</strong>
-  <%= @container.shipping_line.name %>
-</p>
+  <p>
+    <strong>Service:</strong>
+    <%= @container.service %>
+  </p>
 
-<p>
-  <strong>ETA dar:</strong>
-  <%= l @container.eta_dar %>
-</p>
+  <p>
+    <strong>Size:</strong>
+    <%= @container.size %>
+  </p>
 
-<p>
-  <strong>Vessel berthe date:</strong>
-  <%= l @container.vessel_berthe_date %>
-</p>
+  <p>
+    <strong>Gross weight kgs:</strong>
+    <%= @container.gross_weight_kgs %>
+  </p>
 
-<p>
-  <strong>Vessel discharge date:</strong>
-  <%= l @container.vessel_discharge_date %>
-</p>
+  <p>
+    <strong>Line:</strong>
+    <%= @container.shipping_line.name %>
+  </p>
 
-<p>
-  <strong>Loading at dar:</strong>
-  <%= l @container.loading_at_dar %>
-</p>
+  <p>
+    <strong>ETA dar:</strong>
+    <%= l @container.eta_dar %>
+  </p>
 
-<p>
-  <strong>Departure from DAR:</strong>
-  <%= @container&.departed_dar_at %>
-</p>
+  <p>
+    <strong>Vessel berthe date:</strong>
+    <%= l @container.vessel_berthe_date %>
+  </p>
 
-<p>
-  <strong>Truck number:</strong>
-  <%= @container.truck.unique_number %>
-</p>
+  <p>
+    <strong>Vessel discharge date:</strong>
+    <%= l @container.vessel_discharge_date %>
+  </p>
 
-<p>
-  <strong>Truck position:</strong>
-  <%= @container.truck_position %>
-</p>
+  <p>
+    <strong>Loading at dar:</strong>
+    <%= l @container.loading_at_dar %>
+  </p>
 
-<p>
-  <strong>ETA border:</strong>
-  <%= l @container.eta_border %>
-</p>
+  <p>
+    <strong>Departure from DAR:</strong>
+    <%= l @container&.departed_dar_at %>
+  </p>
 
-<p>
-  <strong>ETD border:</strong>
-  <%= l @container.etd_border %>
-</p>
+  <p>
+    <strong>Truck number:</strong>
+    <%= @container.truck.unique_number %>
+  </p>
 
-<p>
-  <strong>Offloading site:</strong>
-  <%= @container.offloading_site %>
-</p>
+  <p>
+    <strong>Truck position:</strong>
+    <%= @container.truck_position %>
+  </p>
 
-<p>
-  <strong>ETA site:</strong>
-  <%= l @container.eta_site %>
-</p>
+  <p>
+    <strong>ETA border:</strong>
+    <%= l @container.eta_border %>
+  </p>
 
-<p>
-  <strong>Offloaded:</strong>
-  <%= @container.offloaded %>
-</p>
+  <p>
+    <strong>ETD border:</strong>
+    <%= l @container.etd_border %>
+  </p>
 
-<p>
-  <strong>Remark:</strong>
-  <%= @container.remark %>
-</p>
+  <p>
+    <strong>Offloading site:</strong>
+    <%= @container.offloading_site %>
+  </p>
 
-<%= link_to 'Edit', edit_container_path(@container) %> |
-<%= link_to 'Back', containers_path %>
+  <p>
+    <strong>ETA site:</strong>
+    <%= l @container.eta_site %>
+  </p>
+
+  <p>
+    <strong>Offloaded:</strong>
+    <%= @container.offloaded %>
+  </p>
+
+  <p>
+    <strong>Remark:</strong>
+    <%= @container.remark %>
+  </p>
+
+  <%= link_to 'Edit', edit_container_path(@container) %> |
+  <%= link_to 'Back', containers_path %>
+
+</div>

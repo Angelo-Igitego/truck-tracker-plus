@@ -1,37 +1,20 @@
-<%= form_with(model: truck, local: true) do |form| %>
-  <% if truck.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(truck.errors.count, "error") %> prohibited this truck from being saved:</h2>
 
-      <ul>
-      <% truck.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for(@truck) do |f| %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model, id: :truck_model %>
-  </div>
+<div class="form-inputs">
+  <%= f.input :model %>
+  <%= f.input :tare %>
+  <%= f.input :license_number %>
+  <%= f.input :unique_number %>
+</div>
 
-  <div class="field">
-    <%= form.label :tare %>
-    <%= form.text_field :tare, id: :truck_tare %>
-  </div>
-
-  <div class="field">
-    <%= form.label :license_number %>
-    <%= form.text_field :license_number, id: :truck_license_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :unique_number %>
-    <%= form.text_field :unique_number, id: :truck_unique_number %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+</div>
 <% end %>
+
+<br>
+
+<br>  
