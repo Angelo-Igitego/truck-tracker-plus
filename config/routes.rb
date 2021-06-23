@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # get '/tracking', to: "containers#tracking", as: :tracking 
   resources :containers
   resources :trip_updates
