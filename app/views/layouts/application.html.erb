@@ -1,25 +1,18 @@
 <!doctype html>
-  <!-- <html lang="en"> -->
+  <html lang="en">
   <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
    <title>Prime CargoTracker</title>
    <%= csrf_meta_tags %>
-   
-
-
    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
-  </head>
+
+ </head>
 
  <body class="">
-
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
@@ -33,11 +26,37 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
          <%= link_to "Tracking", '/tracking', class: "nav-link nav-item" -%>
-         <%= link_to "Shipments", containers_path, class: "nav-link nav-item" -%>
 
+         <% if current_user -%>
+         <%= link_to "Shipments", containers_path, class: "nav-link nav-item" -%>
          <%= link_to "Vehicles", trucks_path, class: "nav-link nav-item" -%>
          <%= link_to "Drivers", "#", class: "nav-link nav-item" -%>     
          <%= link_to "Ports", ports_path, class: "nav-link nav-item" -%>
+
+         <%= link_to "Account", edit_user_registration_path, class: "nav-link nav-item" -%>
+
+         <%= link_to "Logout", destroy_user_session_path,method: :delete,  class: "nav-link nav-item" -%>
+
+
+         <%#= link_to  edit_user_registration_path, class: "nav-link nav-item" do %>
+         <!-- <span class="icon"><i class="fa fa-user"></i></span> My account -->
+         <%# end %>
+
+
+         <%#= link_to destroy_user_session_path, method: :delete, class: "nav-link nav-item" do %>
+         <!-- <span class="icon"><i class="fa fa-sign-out"></i></span> Logout -->
+         <%# end %>
+
+
+         <% end -%>
+
+         <% if !current_user -%>
+
+         <%= link_to "Sign in", new_user_session_path, class: "nav-link nav-item" -%>
+
+         <%= link_to "Sign up", new_user_registration_path, class: "nav-link nav-item" -%>
+         <% end -%>
+
        </ul>
      </div>
    </div>
@@ -66,9 +85,9 @@
 
 <style type="text/css">
 body {
-   
-  padding-top: 2.5rem;
 
+  padding-top: 4.5rem;
+  margin-top:  0.2rem;
   height:100vh;
   min-height:100%;
   max-height:100%;

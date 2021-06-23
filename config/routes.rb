@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'containers#landing', as: :root
 
-  get '/tracking/', to: "containers#tracking"
+  get '/tracking', to: "containers#landing"
   get '/tracking/:number',to: "containers#tracking"
 
 end

@@ -1,6 +1,6 @@
 <div class="">
   <h3>Shipments</h3>
-  
+
 
   <table id="example" class="table table-responsive table-striped table-bordered" style="">
     <thead>
@@ -29,60 +29,60 @@
         <th> OFFLOADED </th>
         <th> REMARK    </th>
         <th> ACTION    </th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @shipments.each do |shipment| %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shipments.each do |shipment| %>
 
-        <tr>
-          <td> <%= shipment.number %> </td>
-          <td> <%= l shipment.documents_received_at %> </td>
-          <td> <%= shipment.shipper_name %> </td>
-          <td> <%= shipment.loading_port.description %> </td>
-          <td> Commodity          </td>
-          <td> Bill of lading no. </td>
-          <td> container no. </td>
-          <td> Service </td>
-          <td> Size    </td>
-          <td> GW Kgs  </td>
-          <td> <%= shipment.shipping_line.name %> </td>
-          <td> eta dar </td>
-          <td> <%= l shipment.bearthed_at %>   </td>
-          <td> <%= l shipment.discharged_at %> </td>
-          <td> Loading at Dar </td>
-          <td> Truck no       </td>
-          <td> Truck position </td>
-          <td> eta border     </td>
-          <td> etd border     </td>
-          <td> offloading site </td>
-          <td> eta site     </td>
-          <td> offloaded    </td>
-          <td> <%= shipment.remarks %> </td>
-          <td>
-            <div class="p-2 icons"> 
-              <%= link_to shipment, class: "btn" do %>
-              <i class="fa fa-share text-success"></i> 
-              <% end %>
-              <%= link_to edit_shipment_path(shipment), class: "btn" do %>
-              <i class="fa fa-pencil text-primary"></i>
-              <% end %>
-              <%#= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-          </td>
-        </tr>
-        <% end -%>
-      </tbody>
-    </table>
-  </div>
-  <br>
+      <tr>
+        <td> <%= shipment.number %> </td>
+        <td> <%= l shipment.documents_received_at %> </td>
+        <td> <%= shipment.shipper_name %> </td>
+        <td> <%= shipment.loading_port.description %> </td>
+        <td> Commodity          </td>
+        <td> Bill of lading no. </td>
+        <td> container no. </td>
+        <td> Service </td>
+        <td> Size    </td>
+        <td> GW Kgs  </td>
+        <td> <%= shipment.shipping_line.name %> </td>
+        <td> eta dar </td>
+        <td> <%= l shipment.bearthed_at %>   </td>
+        <td> <%= l shipment.discharged_at %> </td>
+        <td> Loading at Dar </td>
+        <td> Truck no       </td>
+        <td> Truck position </td>
+        <td> eta border     </td>
+        <td> etd border     </td>
+        <td> offloading site </td>
+        <td> eta site     </td>
+        <td> offloaded    </td>
+        <td> <%= shipment.remarks %> </td>
+        <td>
+          <div class="p-2 icons"> 
+            <%= link_to shipment, class: "btn" do %>
+            <i class="fa fa-share text-success"></i> 
+            <% end %>
+            <%= link_to edit_shipment_path(shipment), class: "btn" do %>
+            <i class="fa fa-pencil text-primary"></i>
+            <% end %>
+            <%#= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
+      </tr>
+      <% end -%>
+    </tbody>
+  </table>
+</div>
+<br>
 
-  <%= link_to 'New Shipment', new_shipment_path, class: "btn btn-primary" %>
+<%= link_to 'New Shipment', new_shipment_path, class: "btn btn-primary" %>
 
 
-  <style type="text/css">
-  .icons i {
-    margin-left: 20px
-  }
+<style type="text/css">
+.icons i {
+  margin-left: 20px
+}
 </style>
 
 

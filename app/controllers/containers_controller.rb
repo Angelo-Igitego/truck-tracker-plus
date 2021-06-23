@@ -4,9 +4,9 @@ class ContainersController < ApplicationController
 
 
   def tracking
-
     respond_to do |format|
       if @container
+        format.html { }
         format.json { render json: @container }
       else
         format.json { render json: "this doesn't exist", head: 500  }
