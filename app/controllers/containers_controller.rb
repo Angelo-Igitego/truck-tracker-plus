@@ -5,6 +5,7 @@ class ContainersController < ApplicationController
 
   def tracking
     @container = Container.includes(:driver, :port_of_loading, :truck).find_by_number(params[:number])
+
     
     if @container
       render :json => @container.to_json(include: [:driver, :port_of_loading, :truck])
@@ -19,7 +20,13 @@ class ContainersController < ApplicationController
 
   # GET /containers or /containers.json
   def index
-    @containers = Container.all
+    if current_user.driver?
+      @containers = current_user.containers
+      
+    else
+      @containers = Container.all 
+      
+    end
   end
 
   # GET /containers/1 or /containers/1.json

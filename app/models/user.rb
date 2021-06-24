@@ -20,6 +20,12 @@ class User < ApplicationRecord
   end
 
 
+  def driver?
+    self.type == "Driver"
+  end
+
+
+
   def type_enum
     [ 'Driver', 'Operations', 'Admin']
   end 

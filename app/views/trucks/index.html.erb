@@ -23,10 +23,12 @@
             <td><%= truck.license_number %></td>
             <td><%= truck.unique_number %></td>
             <td>
+
               <%= link_to 'Show', truck %>
+              <% if !current_user.driver? -%>
               <%= link_to 'Edit', edit_truck_path(truck) %>
               <%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+              <% end -%>
             </td>
           </tr>
           <% end %>

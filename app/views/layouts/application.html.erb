@@ -29,11 +29,13 @@
 
          <% if current_user -%>
          <%= link_to "Shipments", containers_path, class: "nav-link nav-item" -%>
+         <% if !current_user.driver?-%>
          <%= link_to "Customers", customers_path, class: "nav-link nav-item" -%>     
          <%= link_to "Vehicles", trucks_path, class: "nav-link nav-item" -%>
+         <% end -%>
          <%= link_to "Ports", ports_path, class: "nav-link nav-item" -%>
 
-         <%= link_to "Account", edit_user_registration_path, class: "nav-link nav-item" -%>
+         <%= link_to "#{current_user.type} account", edit_user_registration_path, class: "nav-link nav-item" -%>
 
          <%= link_to "Logout", destroy_user_session_path,method: :delete,  class: "nav-link nav-item" -%>
 

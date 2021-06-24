@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <div class="wp-50 wm-100 pt-4 pl-3">
     <h2 style="; text-align: left">Shipments list</h2>
     <br>
@@ -62,7 +62,9 @@
           <td><%= container.remark %></td>
           <td><%= link_to 'Show', container %>
             <%= link_to 'Edit', edit_container_path(container) %>
+            <% if current_user.admin? -%>
             <%= link_to 'Destroy', container, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end -%>
           </tr>
           <% end %>
         </tbody>
