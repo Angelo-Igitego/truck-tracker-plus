@@ -1,41 +1,60 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Customers</h1>
+  <div class="wp-50 wm-100 pt-4 pl-3">
+    <h2 style="; text-align: left">Customers list</h2>
+    <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Business name</th>
-      <th>Po box</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Contact person names</th>
-      <th>Contact person phone</th>
-      <th>Tin number</th>
-      <th>Office location</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table id="example" class="table table-responsive table-striped table-bordered" style="width: 100%;">
 
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.business_name %></td>
-        <td><%= customer.po_box %></td>
-        <td><%= customer.phone %></td>
-        <td><%= customer.email %></td>
-        <td><%= customer.contact_person_names %></td>
-        <td><%= customer.contact_person_phone %></td>
-        <td><%= customer.tin_number %></td>
-        <td><%= customer.office_location %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th>Business name</th>
+          <th>Po box</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Contact person names</th>
+          <th>Contact person phone</th>
+          <th>Tin number</th>
+          <th>Office location</th>
+          <th colspan=""></th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.business_name %></td>
+          <td><%= customer.po_box %></td>
+          <td><%= customer.phone %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.contact_person_names %></td>
+          <td><%= customer.contact_person_phone %></td>
+          <td><%= customer.tin_number %></td>
+          <td><%= customer.office_location %></td>
+          <td>
+            <%= link_to 'Show', customer %>
+            <%= link_to 'Edit', edit_customer_path(customer) %>
+            <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
+            
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Customer', new_customer_path %>
+    <br>
+
+    <%#= link_to 'New Customer', new_customer_path %>
+
+
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+    $('#example').DataTable();
+  } );
+</script>

@@ -1,6 +1,9 @@
-<h1>Editing Customer</h1>
-
-<%= render 'form', customer: @customer %>
-
-<%= link_to 'Show', @customer %> |
-<%= link_to 'Back', customers_path %>
+<div class="container">
+	<div class="wp-50 wm-100 pt-4 pl-3">
+		<h2 style="; text-align: left">Edit customer information</h2>
+		<br>
+		<%= render 'form', customer: @customer %>
+		<%= link_to 'Show', @customer %> |
+		<%= link_to 'Back', customers_path %>
+	</div>
+</div>

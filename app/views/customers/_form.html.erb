@@ -1,57 +1,45 @@
-<%= form_with(model: customer, local: true) do |form| %>
-  <% if customer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+<%= simple_form_for(@customer) do |f| %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <ul>
-      <% customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="controls form-inputs">
+  <div class="row">
+    <div class="col-sm-6"> <%= f.input :business_name, id: :customer_business_name %> </div>
+
+    <div class="col-sm-6"> <%= f.input :po_box, id: :customer_po_box %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :business_name %>
-    <%= form.text_field :business_name, id: :customer_business_name %>
+    <div class="col-sm-6">
+      <%= f.input :phone, id: :customer_phone %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= f.input :email, id: :customer_email %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= f.input :contact_person_names, id: :customer_contact_person_names %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= f.input :contact_person_phone, id: :customer_contact_person_phone %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= f.input :tin_number, id: :customer_tin_number %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= f.input :office_location, id: :customer_office_location %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :po_box %>
-    <%= form.text_field :po_box, id: :customer_po_box %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :customer_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :customer_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact_person_names %>
-    <%= form.text_field :contact_person_names, id: :customer_contact_person_names %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact_person_phone %>
-    <%= form.text_field :contact_person_phone, id: :customer_contact_person_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tin_number %>
-    <%= form.text_field :tin_number, id: :customer_tin_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :office_location %>
-    <%= form.text_field :office_location, id: :customer_office_location %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
+<br>
+<div class="actions">
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+</div>
 <% end %>
+
+<br>
+
