@@ -54,6 +54,8 @@ RailsAdmin.config do |config|
   ]
 
   config.model Container do
+    label "Shipment"
+    label_plural "Shipments list"
     configure :number do
       label "container number"
     end
