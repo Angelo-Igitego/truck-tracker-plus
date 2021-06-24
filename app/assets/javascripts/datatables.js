@@ -9,9 +9,9 @@
 //= require datatables/extensions/Buttons/buttons.colVis
 //= require datatables/extensions/Buttons/buttons.flash
 //= require datatables/extensions/ColReorder/dataTables.colReorder
-//= require datatables/extensions/FixedColumns/dataTables.fixedColumns
-//= require datatables/extensions/FixedHeader/dataTables.fixedHeader
-//= require datatables/extensions/KeyTable/dataTables.keyTable
+// require datatables/extensions/FixedColumns/dataTables.fixedColumns
+// require datatables/extensions/FixedHeader/dataTables.fixedHeader
+// require datatables/extensions/KeyTable/dataTables.keyTable
 //= require datatables/extensions/Responsive/dataTables.responsive
 //= require datatables/extensions/RowGroup/dataTables.rowGroup
 //= require datatables/extensions/RowReorder/dataTables.rowReorder
