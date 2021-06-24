@@ -11,16 +11,14 @@
 // about supported directives.
 //
 //= require jquery
-// require jquery3
 //= require jquery_ujs
-// require rails-ujs
+//= require datatables
 //= require turbolinks
 //= require moment
 //= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
 //= require bootstrap
 //= require popper
-//= require datatables
 //= require_tree .
 
 
