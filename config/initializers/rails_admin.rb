@@ -48,7 +48,9 @@ RailsAdmin.config do |config|
     "User",
     "Container", 
     "Truck",
-    "Port" 
+    "Port",
+    "Customer", 
+    "ShippingLine"
   ]
 
   config.model Container do

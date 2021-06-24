@@ -6,9 +6,11 @@ class User < ApplicationRecord
 
   has_many :containers, foreign_key: "driver_id"
 
+  validates_presence_of :email, :first_name, :phone, :last_name
+  
+
   self.inheritance_column = :type
 
-  validates_presence_of :email, :type, :first_name, :phone, :last_name
   
   validates :email, uniqueness: true
 

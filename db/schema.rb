@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210622141933) do
+ActiveRecord::Schema.define(version: 20210620182032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "containers", force: :cascade do |t|
     t.string "number", null: false
+    t.bigint "customer_id", null: false
     t.integer "driver_id"
     t.datetime "docs_rcd"
     t.string "shipper"
@@ -33,15 +34,16 @@ ActiveRecord::Schema.define(version: 20210622141933) do
     t.datetime "loading_at_dar"
     t.bigint "truck_id"
     t.string "truck_position"
+    t.datetime "departed_dar_at"
     t.datetime "eta_border"
     t.datetime "etd_border"
     t.string "offloading_site"
     t.datetime "eta_site"
-    t.boolean "offloaded"
+    t.datetime "offloaded_at"
     t.text "remark"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "departed_dar_at"
+    t.index ["customer_id"], name: "index_containers_on_customer_id"
     t.index ["shipping_line_id"], name: "index_containers_on_shipping_line_id"
     t.index ["truck_id"], name: "index_containers_on_truck_id"
   end

@@ -132,7 +132,9 @@
         $("#commodity").html("Commodity: " + data["commodity"]);
         $("#eta_site").html("ETA Site: " + 
           new Date(data["eta_site"]).toDateString());
-        $("#offloaded").html("Offloaded: " + offloaded);
+        // $("#offloaded").html("Offloaded: " + offloaded);
+        $("#offloaded").html("Offload time: " + 
+          new Date(data["offloaded_at"]).toDateString());
         $("#remark").html("Remarks: " + data["remark"]);
 
       } 

@@ -2,6 +2,7 @@ class CreateContainers < ActiveRecord::Migration[5.1]
   def change
     create_table :containers do |t|
       t.string :number, null: false, unique: true
+      t.references :customer, null: false, unique: true
       t.integer :driver_id
       t.datetime :docs_rcd
       t.string :shipper
@@ -18,11 +19,12 @@ class CreateContainers < ActiveRecord::Migration[5.1]
       t.datetime :loading_at_dar
       t.references :truck, foreign_key: true
       t.string :truck_position
+      t.datetime :departed_dar_at
       t.datetime :eta_border
       t.datetime :etd_border
       t.string :offloading_site
       t.datetime :eta_site
-      t.boolean :offloaded
+      t.datetime :offloaded_at
       t.text :remark
 
       t.timestamps
