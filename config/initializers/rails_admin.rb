@@ -65,7 +65,10 @@ RailsAdmin.config do |config|
     label "System user"
     label_plural "System users"
     weight 1
-    include_fields :first_name, :last_name, :gender, :phone, :email, :password, :password_confirmation, :driving_license_number, :type, :nationality  
+    configure :type do 
+      label "Role"
+    end
+    include_fields :type, :first_name, :last_name, :gender, :phone, :email, :password, :password_confirmation, :driving_license_number, :nationality  
   end
 
   config.model Truck do

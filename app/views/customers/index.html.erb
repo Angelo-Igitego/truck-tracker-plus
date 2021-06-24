@@ -16,7 +16,7 @@
           <th>Contact person phone</th>
           <th>Tin number</th>
           <th>Office location</th>
-          <th colspan=""></th>
+          <th>Action</th>
         </tr>
       </thead>
 
@@ -33,9 +33,10 @@
           <td><%= customer.office_location %></td>
           <td>
             <%= link_to 'Show', customer %>
+            <% if current_user.admin? -%>
             <%= link_to 'Edit', edit_customer_path(customer) %>
             <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
-            
+            <% end -%>  
           </td>
         </tr>
         <% end %>
@@ -44,9 +45,7 @@
 
     <br>
 
-    <%#= link_to 'New Customer', new_customer_path %>
-
-
+    <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" unless current_user.driver? %>
   </div>
 </div>
 
