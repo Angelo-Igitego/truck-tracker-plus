@@ -34,18 +34,19 @@
         
       </div>
       <div class="modal-body card border-success ">
-        <p> Shipment No:  <span id="shipment_no">  </span>      </p>
-        <p> BOL:          <span id="bol_number">  </span>       </p>
-        <p> Container No: <span id="container_no">  </span>     </p>
-        <p> Commodity:    <span id="commodity">  </span>        </p>
-        <p> ETA site:     <span id="eta_site">  </span>         </p>
-        <p> Offloading place: <span id="offloading_place">  </span> </p>
-        <p> Truck no:        <span id="truck_number">  </span>     </p>
-        <p> Driver name:     <span id="driver_name">  </span>      </p>
-        <p> Port of Loading: <span id="port_of_loading">  </span>  </p>
-        <p> Loading_date:    <span id="loading_date">  </span>     </p>
-        <p> Offloading time: <span id="offloaded">  </span>        </p>
-        <p> Remark:          <span id="remark">  </span>           </p>
+        <p> Shipment No:  <span id="shipment_no">   </span> </p>
+        <p> BOL:          <span id="bol_number">    </span> </p>
+        <p> Container No: <span id="container_no">  </span> </p>
+        <p> Commodity:    <span id="commodity">     </span> </p>
+        <p> Truck no:     <span id="truck_number">  </span> </p>
+        <p> Driver name:  <span id="driver_name">   </span> </p>
+        <p> Port of loading: <span id="port_of_loading">  </span> </p>
+        <p> Loading date: <span id="loading_date">        </span> </p>
+        <p> Truck position: <span id="truck_position">    </span> </p>
+        <p> Offloading site: <span id="offloading_place"> </span> </p>
+        <p> ETA site:     <span id="eta_site">            </span> </p>
+        <p> Offloading date: <span id="offloaded">        </span> </p>
+        <p> Remark:          <span id="remark">           </span> </p>
       </div>
       <br>
       <!-- <br> -->
@@ -126,6 +127,7 @@
       type: 'get',
       success: function(data){
        if(data["number"]){
+        // console.dir(data);
         $('#tracking_confirmation_modal').modal('toggle');
         $("#approval_checkmark").html('<img style="width: 100%; height:100%; margin: auto" src="https://img.icons8.com/flat-round/64/000000/checkmark.png"/>');
         $("#shipment_no").html(data["number"]);
@@ -134,9 +136,10 @@
         $("#commodity").html(data["commodity"]);
         $("#eta_site").html(new Date(data["eta_site"]).toDateString());
         $("#offloading_place").html(data["offloading_site"]);
-        $("#truck_number").html(data["truck_number"]);
-        $("#driver_name").html(data["driver_name"]);
-        $("#port_of_loading").html(data["port_of_loading"]);
+        $("#truck_number").html(data["truck"]["unique_number"]);
+        $("#driver_name").html(data["driver"]["first_name"] + " " + data["driver"]["last_name"]);
+        $("#port_of_loading").html(data["port_of_loading"]["name"] + ", " + data["port_of_loading"]["country"] );
+        $("#truck_position").html(data["truck_position"]);
         $("#loading_date").html(new Date(data["loading_at_dar"]).toDateString());
         $("#offloaded").html(new Date(data["offloaded_at"]).toDateString());
         $("#remark").html(data["remark"]);

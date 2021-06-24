@@ -34,24 +34,18 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
 gem 'devise'
-
 gem 'simple_form'
-
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
 #for a great datetime picker
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
-
 gem 'jquery-datatables'
-
 gem 'rails_admin', '~> 2.0'
-
 gem 'cancancan'
-
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
