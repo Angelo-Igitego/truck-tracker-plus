@@ -53,5 +53,5 @@
   <%= @shipment.remarks %>
 </p>
 
-<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
+<%= link_to 'Edit', edit_shipment_path(@shipment) unless current_user.driver? %> |
 <%= link_to 'Back', shipments_path %>

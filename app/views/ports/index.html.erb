@@ -21,8 +21,10 @@
           <td><%= port.country %></td>
           <td>
             <%= link_to 'Show', port %>
+            <% unless current_user.driver? -%>
             <%= link_to 'Edit', edit_port_path(port) %>
             <%= link_to 'Destroy', port, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end -%>
           </td>
         </tr>
         <% end %>

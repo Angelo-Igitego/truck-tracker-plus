@@ -1,7 +1,7 @@
 
 <div class="container">
 
-  <h3> Vehicle information </h3>  
+  <h3> Truck information </h3>  
 
   <p>
     <strong>Model:</strong>
@@ -23,7 +23,8 @@
     <%= @truck.unique_number %>
   </p>
 
+  <% unless current_user.driver? -%>
   <%= link_to 'Edit', edit_truck_path(@truck) %> |
   <%= link_to 'Back', trucks_path %>
-
+  <% end -%>
 </div>

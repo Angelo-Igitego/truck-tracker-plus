@@ -1,25 +1,35 @@
-<h1>Shipping Lines</h1>
+<div class="container">
+  <div class="wp-75 pt-4">
+    <div class="table-responsive">
+      <h3>Shipping lines</h3>
+      <table id="example" class="table table-responsive-sm table-striped table-bordered">
+        <thead>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th colspan=""></th>
+            </tr>
+          </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <tbody>
+            <% @shipping_lines.each do |shipping_line| %>
+            <tr>
+              <td><%= shipping_line.name %></td>
+              <td><%= link_to 'Show', shipping_line %>
+                <% unless current_user.driver? -%>
+                <%= link_to 'Edit', edit_shipping_line_path(shipping_line) %>
+                <%= link_to 'Destroy', shipping_line, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end -%>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-  <tbody>
-    <% @shipping_lines.each do |shipping_line| %>
-      <tr>
-        <td><%= shipping_line.name %></td>
-        <td><%= link_to 'Show', shipping_line %></td>
-        <td><%= link_to 'Edit', edit_shipping_line_path(shipping_line) %></td>
-        <td><%= link_to 'Destroy', shipping_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <%= link_to 'New Shipping Line', new_shipping_line_path %>
 
-<br>
 
-<%= link_to 'New Shipping Line', new_shipping_line_path %>
+      </div>
+
+    </div>
+  </div>

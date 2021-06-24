@@ -21,3 +21,13 @@
 //= require datatables
 //= require_tree .
 
+
+$(document).on('turbolinks:load', function() {
+	$('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            // 'colvis'
+            // 'pdf', 'excel'
+        ]
+    } );
+} );

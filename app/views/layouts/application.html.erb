@@ -6,10 +6,9 @@
 
    <title>Prime CargoTracker</title>
    <%= csrf_meta_tags %>
-   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  </head>
 
  <body class="">
@@ -31,7 +30,7 @@
          <%= link_to "Shipments", containers_path, class: "nav-link nav-item" -%>
          <% if !current_user.driver?-%>
          <%= link_to "Customers", customers_path, class: "nav-link nav-item" -%>     
-         <%= link_to "Vehicles", trucks_path, class: "nav-link nav-item" -%>
+         <%= link_to "Trucks", trucks_path, class: "nav-link nav-item" -%>
          <% end -%>
          <%= link_to "Ports", ports_path, class: "nav-link nav-item" -%>
 

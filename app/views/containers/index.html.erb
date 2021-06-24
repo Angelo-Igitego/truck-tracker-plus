@@ -30,7 +30,7 @@
           <th>Eta site</th>
           <th>Offloaded</th>
           <th>Remark</th>
-          <th colspan="">Action</th>
+          <th>Action</th>
         </tr>
       </thead>
 
@@ -63,29 +63,24 @@
           <td><%= link_to 'Show', container %>
             <%= link_to 'Edit', edit_container_path(container) %>
             <% if current_user.admin? -%>
-            <%= link_to 'Destroy', container, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <%= link_to 'Destroy', container, method: :delete, data: { confirm: 'Are you sure?' } %>
+
             <% end -%>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-      <br>
+    <br>
 
-      <%= link_to 'New shipment', new_container_path , class: "btn btn-primary" %>
+    <%= link_to 'New shipment', new_container_path , class: "btn btn-primary" %>
 
-    </div>
   </div>
+</div>
 
-  <style type="text/css">
-  .icons i {
-    margin-left: 20px
-  }
+<style type="text/css">
+.icons i {
+  margin-left: 20px
+}
 </style>
-
-
-<script type="text/javascript">
-  $(document).on('turbolinks:load', function() {
-    $('#example').DataTable();
-  } );
-</script>

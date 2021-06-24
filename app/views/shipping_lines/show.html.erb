@@ -3,5 +3,6 @@
   <%= @shipping_line.name %>
 </p>
 
-<%= link_to 'Edit', edit_shipping_line_path(@shipping_line) %> |
+
+<%= link_to 'Edit', edit_shipping_line_path(@shipping_line) unless current_user.driver? %> |
 <%= link_to 'Back', shipping_lines_path %>

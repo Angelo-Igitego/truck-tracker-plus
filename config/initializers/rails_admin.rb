@@ -73,9 +73,6 @@ RailsAdmin.config do |config|
 
   config.model Truck do
     weight 2
-    label "Vehicle"
-    label_plural "Vehicles"
-
     include_fields :unique_number, :license_number, :model, :tare
   end
 
