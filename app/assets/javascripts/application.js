@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require datatables
 //= require jquery_ujs
 //= require turbolinks
-//= require datatables
 //= require moment
 //= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
@@ -22,7 +22,7 @@
 //= require_tree .
 
 
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
 	$('#example').dataTable( {
         dom: 'Bfrtip',
         buttons: [
