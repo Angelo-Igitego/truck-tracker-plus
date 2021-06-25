@@ -37,7 +37,7 @@
         <tr>
           <td><%= container.number %></td>
           <td><%= container.driver.name %></td>
-          <td><%= l container.docs_rcd %></td>
+          <td><%=container.docs_rcd %></td>
           <td><%= container.shipper %></td>
           <td><%= container.port_of_loading.name %></td>
           <td><%= container.commodity %></td>
@@ -46,17 +46,17 @@
           <td><%= container.size %></td>
           <td><%= container.gross_weight_kgs %></td>
           <td><%= container.shipping_line.name %></td>
-          <td><%= l container.eta_dar %></td>
+          <td><%=container.eta_dar %></td>
           <td><%=  container.vessel_berthe_date %></td>
-          <td><%= l container.vessel_discharge_date %></td>
-          <td><%= l container.loading_at_dar %></td>
+          <td><%= container.vessel_discharge_date %></td>
+          <td><%= container.loading_at_dar %></td>
           <td><%= container.truck.unique_number %></td>
           <td><%= container.truck_position %></td>
-          <td><%= l container.eta_border %></td>
-          <td><%= l container.etd_border %></td>
+          <td><%=container.eta_border %></td>
+          <td><%=container.etd_border %></td>
           <td><%= container.offloading_site %></td>
-          <td><%= l container.eta_site %></td>
-          <td><%= l container.offloaded_at %></td>
+          <td><%=container.eta_site %></td>
+          <td><%=container.offloaded_at %></td>
           <td><%= container.remark %></td>
           <td><%= link_to 'Show', container %>
             <%= link_to 'Edit', edit_container_path(container) %>
