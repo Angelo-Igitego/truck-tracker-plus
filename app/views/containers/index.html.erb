@@ -1,6 +1,4 @@
 <div class="container">
-
-  <div class="wp-50 wm-100 pt-4 pl-3">
     <h2 style="; text-align: left">Shipments list</h2>
     <br>
 
@@ -74,9 +72,7 @@
 
     <br>
 
-    <%= link_to 'New shipment', new_container_path , class: "btn btn-primary" %>
-
-  </div>
+    <%= link_to 'New shipment', new_container_path , class: "btn btn-primary" unless current_user.driver? %>
 </div>
 
 <style type="text/css">

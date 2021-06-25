@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require datatables
 //= require turbolinks
 //= require moment
 //= require bootstrap-sprockets
@@ -21,13 +19,3 @@
 //= require popper
 //= require_tree .
 
-
-$(document).ready(function() {
-	$('#example').dataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            // 'colvis'
-            // 'pdf', 'excel'
-        ]
-    } );
-} );
