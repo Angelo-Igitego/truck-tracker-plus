@@ -53,6 +53,8 @@
     <%= @container.gross_weight_kgs %>
   </p>
 
+  <!-- "%d/%m/%Y %H:%M" -->
+
   <p>
     <strong>Line:</strong>
     <%= @container.shipping_line.name %>
@@ -60,27 +62,27 @@
 
   <p>
     <strong>ETA dar:</strong>
-    <%= l @container.eta_dar %>
+    <%= @container.eta_dar %>
   </p>
 
   <p>
     <strong>Vessel berthe date:</strong>
-    <%= l @container.vessel_berthe_date %>
+    <%= @container.vessel_berthe_date %>
   </p>
 
   <p>
     <strong>Vessel discharge date:</strong>
-    <%= l @container.vessel_discharge_date %>
+    <%= @container.vessel_discharge_date %>
   </p>
 
   <p>
     <strong>Loading at dar:</strong>
-    <%= l @container.loading_at_dar %>
+    <%= @container.loading_at_dar %>
   </p>
 
   <p>
     <strong>Departure from DAR:</strong>
-    <%= l @container&.departed_dar_at %>
+    <%= @container&.departed_dar_at %>
   </p>
 
   <p>
@@ -95,12 +97,12 @@
 
   <p>
     <strong>ETA border:</strong>
-    <%= l @container.eta_border %>
+    <%= @container.eta_border %>
   </p>
 
   <p>
     <strong>ETD border:</strong>
-    <%= l @container.etd_border %>
+    <%= @container.etd_border %>
   </p>
 
   <p>
@@ -110,12 +112,12 @@
 
   <p>
     <strong>ETA site:</strong>
-    <%= l @container.eta_site %>
+    <%= @container.eta_site %>
   </p>
 
   <p>
     <strong>Offloaded:</strong>
-    <%= l @container.offloaded_at %>
+    <%= @container.offloaded_at %>
   </p>
 
   <p>
