@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require datatables
 //= require jquery_ujs
+//= require datatables
 //= require turbolinks
 //= require moment
 //= require bootstrap-sprockets

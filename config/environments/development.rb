@@ -55,6 +55,8 @@ Rails.application.configure do
 
   # for devise mailing configuration
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.secret_key = '6834fe6a6bf11e9f4e58ed56c0000e044a70394a9f7d670e7775fc4662b0478aca1d4429937667158b0016d9bd3fbb4cba18a5a4e15c19d9747db2ea6cc3a6f0'
   
   # set the timezone to cairo for better datetime management
   config.time_zone = "Cairo"

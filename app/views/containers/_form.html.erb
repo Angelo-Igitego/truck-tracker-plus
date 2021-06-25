@@ -5,6 +5,8 @@
 
 <div class="controls form-inputs">
   <div class="row">
+    <% if !current_user.driver? -%>
+    
     <div class="col-sm-4"> <%= f.input :number %> </div>
     <div class="col-sm-4"> <%= f.input :docs_rcd, as: :datetime, html5: true  %> </div>
     <div class="col-sm-4"> <%= f.association :customer  %>  </div>
@@ -23,7 +25,9 @@
     <div class="col-sm-4"> <%= f.input :vessel_discharge_date, html5: true %> </div>
     <div class="col-sm-4"> <%= f.input :loading_at_dar, html5: true %> </div>
     <div class="col-sm-4"> <%= f.input :departed_dar_at, html5: true %> </div>
+
     <div class="col-sm-4"> <%= f.input :truck_position %> </div>
+
     <div class="col-sm-4"> <%= f.input :eta_border, html5: true %> </div>
     <div class="col-sm-4"> <%= f.input :etd_border, html5: true %> </div>
     <div class="col-sm-4"> <%= f.input :offloading_site %> </div>
@@ -32,6 +36,20 @@
     <div class="col-sm-12"> <%= f.input :remark %> </div>
   </div>
 
+  <% else -%>
+
+
+  <div class="col-sm-4"> <%= f.input :number %> </div>
+  <div class="col-sm-4"> <%= f.association :port_of_loading  %> </div>
+  <div class="col-sm-4"> <%= f.association :truck %>  </div>
+  <div class="col-sm-4"> <%= f.association :driver %>  </div>
+  <div class="col-sm-4"> <%= f.input :commodity %> </div>
+  <div class="col-sm-4"> <%= f.input :bill_of_ladding_number %>  </div>
+  <div class="col-sm-4"> <%= f.input :eta_dar, html5: true %> </div>
+  <div class="col-sm-4"> <%= f.input :vessel_berthe_date, html5: true %> </div>
+  <div class="col-sm-4"> <%= f.input :loading_at_dar, html5: true %> </div>
+  <div class="col-sm-4"> <%= f.input :departed_dar_at, html5: true %> </div>
+  <% end-%>
   <br>
   <div class="form-actions"> <%= f.button :submit, "Submit", class: "btn btn-primary" %> </div>
   <% end %>
