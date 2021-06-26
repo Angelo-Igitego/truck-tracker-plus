@@ -1,3 +1,20 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_self
+*= require_tree .
+*/
+
+
 @import "bootstrap-datetimepicker";
 @import "bootstrap";
 
@@ -6,47 +23,47 @@
 .input-group-lg > .form-select,
 .input-group-lg > .input-group-text,
 .input-group-lg > .btn {
-  padding: 1rem 1.25rem;
-  font-size: 1.25rem;
-  border-radius: 0.3rem;
+padding: 1rem 1.25rem;
+font-size: 1.25rem;
+border-radius: 0.3rem;
 }
 
 
 #masthead {
-  height:100vh;
-  position: relative;
-  /*min-width: 100%;*/
-  background-color: #343a40;
-  background: url("https://www.primeintlcarriers.com/wp-content/uploads/2020/04/Asset-7-e1587468560198.png") no-repeat center;
-  background-size: cover;
+height:100vh;
+position: relative;
+/*min-width: 100%;*/
+background-color: #343a40;
+background: url("https://www.primeintlcarriers.com/wp-content/uploads/2020/04/Asset-7-e1587468560198.png") no-repeat center;
+background-size: cover;
 }
 
 
 #masthead:before {
-  content: "";
-  position: absolute;
-  background-color: #1c375e;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
+content: "";
+position: absolute;
+background-color: #1c375e;
+height: 100%;
+width: 100%;
+top: 0;
+left: 0;
+opacity: 0.5;
 }
 #masthead h1, #masthead .h1 {
-  font-size: 2rem;
+font-size: 2rem;
 }
 @media (min-width: 768px) {
-  #masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-  }
-  #masthead h1, #masthead .h1 {
-    font-size: 3rem;
-  }
+#masthead {
+padding-top: 12rem;
+padding-bottom: 12rem;
+}
+#masthead h1, #masthead .h1 {
+font-size: 3rem;
+}
 }
 
 h3 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+margin-top: 2rem;
+margin-bottom: 2rem;
 }
 
