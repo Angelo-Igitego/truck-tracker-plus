@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210620182032) do
+ActiveRecord::Schema.define(version: 20210705110338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20210620182032) do
     t.text "remark"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "shipment_number", default: ""
     t.index ["customer_id"], name: "index_containers_on_customer_id"
     t.index ["shipping_line_id"], name: "index_containers_on_shipping_line_id"
     t.index ["truck_id"], name: "index_containers_on_truck_id"

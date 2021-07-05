@@ -91,6 +91,6 @@ class ContainersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def container_params
-      params.require(:container).permit(:number, :departed_dar_at, :offloaded_at, :customer_id, :driver_id, :docs_rcd, :shipper, :port_of_loading_id, :commodity, :bill_of_ladding_number, :service, :size, :gross_weight_kgs, :shipping_line_id, :eta_dar, :vessel_berthe_date, :vessel_discharge_date, :loading_at_dar, :truck_id, :truck_position, :eta_border, :etd_border, :offloading_site, :eta_site, :offloaded, :remark, :departed_dar_at)
+      params.require(:container).permit(:number, :departed_dar_at, :offloaded_at, :customer_id, :driver_id, :docs_rcd, :shipper, :port_of_loading_id, :commodity, :bill_of_ladding_number, :service, :size, :gross_weight_kgs, :shipping_line_id, :eta_dar, :vessel_berthe_date, :vessel_discharge_date, :loading_at_dar, :truck_id, :truck_position, :eta_border, :etd_border, :offloading_site, :eta_site, :offloaded, :remark, :departed_dar_at, :shipment_number)
     end
   end

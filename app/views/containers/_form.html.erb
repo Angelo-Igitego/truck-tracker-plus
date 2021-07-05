@@ -7,7 +7,9 @@
   <div class="row">
     <% if !current_user.driver? -%>
     
-    <div class="col-sm-4"> <%= f.input :number %> </div>
+    <div class="col-sm-4"> <%= f.input :shipment_number, required: true %> </div>
+    <div class="col-sm-4"> <%= f.input :number, label: "Container number" %> </div>
+
     <div class="col-sm-4"> <%= f.input :docs_rcd, as: :datetime, html5: true  %> </div>
     <div class="col-sm-4"> <%= f.association :customer  %>  </div>
     <div class="col-sm-4"> <%= f.input :shipper %> </div>

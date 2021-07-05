@@ -5,7 +5,8 @@
     <table id="example" class="table table-responsive table-striped table-bordered" style="width: 100%;">
       <thead>
         <tr>
-          <th>Number</th>
+          <th>Container number</th>
+          <th> Shipment number</th>
           <th>Truck Driver</th>
           <th>Docs rcd</th>
           <th>Shipper</th>
@@ -36,6 +37,7 @@
         <% @containers.each do |container| %>
         <tr>
           <td><%= container.number %></td>
+          <td><%= container.shipment_number %></td>
           <td><%= container.driver.name %></td>
           <td><%=container.docs_rcd %></td>
           <td><%= container.shipper %></td>
