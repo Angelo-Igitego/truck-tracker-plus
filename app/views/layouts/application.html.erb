@@ -36,7 +36,7 @@
 
          <%= link_to "#{current_user.type} account", edit_user_registration_path, class: "nav-link nav-item" -%>
 
-         <%= link_to "Logout", destroy_user_session_path,method: :delete,  class: "nav-link nav-item" -%>
+         <%= link_to "Logout", destroy_user_session_path,method: :delete,  class: "btn nav-link nav-item" -%>
 
          <%= link_to "Back office", "/admin", class: "nav-item btn btn-success" if current_user.type == "Admin"-%>
 
