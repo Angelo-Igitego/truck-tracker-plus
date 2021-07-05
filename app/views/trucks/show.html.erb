@@ -1,7 +1,18 @@
 
-<div class="container">
+<div class="container pt-4 w-50">
 
   <h3> Truck information </h3>  
+
+  <p>
+    <strong>License number:</strong>
+    <%= @truck.license_number %>
+  </p>
+
+  <p>
+    <strong>Unique number:</strong>
+    <%= @truck.unique_number %>
+  </p>
+
 
   <p>
     <strong>Model:</strong>
@@ -13,15 +24,6 @@
     <%= @truck.tare %>
   </p>
 
-  <p>
-    <strong>License number:</strong>
-    <%= @truck.license_number %>
-  </p>
-
-  <p>
-    <strong>Unique number:</strong>
-    <%= @truck.unique_number %>
-  </p>
 
   <% unless current_user.driver? -%>
   <%= link_to 'Edit', edit_truck_path(@truck) %> |
