@@ -4,7 +4,7 @@ class ContainersController < ApplicationController
 
 
   def tracking
-    @container = Container.includes(:driver, :port_of_loading, :truck).find_by_number(params[:number])
+    @container = Container.includes(:driver, :port_of_loading, :truck).find_by_shipment_number(params[:number])
 
     
     if @container
