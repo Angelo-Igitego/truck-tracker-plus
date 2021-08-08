@@ -5,10 +5,8 @@ class ContainersController < ApplicationController
 
   def tracking
     @container = Container.includes(:driver, :port_of_loading, :truck).find_by_shipment_number(params[:number])
-
-    
     if @container
-      render :json => @container.to_json(include: [:driver, :port_of_loading, :truck])
+      render :json => @container.to_json(include: [:driver, :port_of_loading, :truck, :customer])
     else
       render js: "" 
     end

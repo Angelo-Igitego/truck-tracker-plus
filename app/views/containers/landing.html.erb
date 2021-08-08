@@ -35,6 +35,7 @@
       </div>
       <div class="modal-body card border-success ">
         <p> Shipment No:  <span id="shipment_no">   </span> </p>
+        <p> Customer name:  <span id="customer_name">   </span> </p>
         <p> BOL:          <span id="bol_number">    </span> </p>
         <p> Container No: <span id="container_no">  </span> </p>
         <p> Commodity:    <span id="commodity">     </span> </p>
@@ -109,6 +110,7 @@
     $("#approval_checkmark").html('');
 
     $("#shipment_no").html("");
+    $("#customer_name").html("");
     $("#bol_number").html("");
     $("#container_no").html("");
     $("#commodity").html("");
@@ -121,6 +123,8 @@
     $("#offloaded").html("");
     $("#remark").html("");
 
+    
+
     var url = '/tracking?number='+tracking_number;
     $.ajax({
       url:  url,
@@ -128,9 +132,12 @@
       success: function(data){
        if(data["number"]){
         // console.dir(data);
+
+        // 
         $('#tracking_confirmation_modal').modal('toggle');
         $("#approval_checkmark").html('<img style="width: 100%; height:100%; margin: auto" src="https://img.icons8.com/flat-round/64/000000/checkmark.png"/>');
         $("#shipment_no").html(data["shipment_number"]);
+        $("#customer_name").html(data["customer"]["business_name"]);
         $("#bol_number").html(data["bill_of_ladding_number"]);
         $("#container_no").html(data["number"]);
         $("#commodity").html(data["commodity"]);
